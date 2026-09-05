@@ -17,6 +17,9 @@ final class PlaylistJob: ObservableObject {
     @Published private(set) var currentTitle = ""
     @Published private(set) var failures: [Failure] = []
     @Published private(set) var playlistURL: URL?
+    /// The successfully resolved videos, kept so they can be played in-app without
+    /// re-resolving. Cleared by `reset()` alongside everything else.
+    @Published private(set) var resolved: [ExtractedVideo] = []
     @Published var errorMessage: String?
 
     var progress: Double {
@@ -30,6 +33,7 @@ final class PlaylistJob: ObservableObject {
         currentTitle = ""
         failures = []
         playlistURL = nil
+        resolved = []
         errorMessage = nil
     }
 
@@ -47,7 +51,7 @@ final class PlaylistJob: ObservableObject {
         isRunning = true
         totalCount = videos.count
 
-        var resolved: [ExtractedVideo] = []
+        var collected: [ExtractedVideo] = []
         for video in videos {
             currentTitle = video.title
             do {
@@ -55,7 +59,7 @@ final class PlaylistJob: ObservableObject {
                     throw ExtractionError.unsupportedURL
                 }
                 let extracted = try await extractor.extract(url: video.url)
-                resolved.append(extracted)
+                collected.append(extracted)
             } catch let error as ExtractionError {
                 failures.append(Failure(video: video, reason: error.errorDescription ?? "Unknown error"))
             } catch {
@@ -66,14 +70,16 @@ final class PlaylistJob: ObservableObject {
 
         currentTitle = ""
 
-        guard !resolved.isEmpty else {
+        resolved = collected
+
+        guard !collected.isEmpty else {
             isRunning = false
             errorMessage = "None of the \(videos.count) queued video(s) could be resolved to a stream."
             return
         }
 
         do {
-            playlistURL = try PlaylistBuilder.write(resolved, name: playlistName)
+            playlistURL = try PlaylistBuilder.write(collected, name: playlistName)
         } catch {
             errorMessage = "Could not write the playlist file: \(error.localizedDescription)"
         }

@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// The queue of picked videos, and the button that turns it into one VLC playlist.
+/// The queue of picked videos: resolve them once, then play in-app or export to VLC.
 struct QueueView: View {
     @EnvironmentObject private var queue: QueueStore
     @StateObject private var job = PlaylistJob()
@@ -50,11 +50,11 @@ struct QueueView: View {
                         Button {
                             Task { await job.build(from: queue.items, playlistName: playlistName) }
                         } label: {
-                            Label("Build VLC playlist", systemImage: "play.rectangle.on.rectangle")
+                            Label("Resolve playlist", systemImage: "play.rectangle.on.rectangle")
                         }
                     }
                 } footer: {
-                    Text("Each video's page is opened just long enough to find its stream URL. No video data is downloaded.")
+                    Text("Each video's page is opened just long enough to find its stream URL. No video data is downloaded — playback streams from the source.")
                 }
             }
 
@@ -77,8 +77,25 @@ struct QueueView: View {
                 }
             }
 
+            if !job.resolved.isEmpty {
+                Section {
+                    NavigationLink {
+                        PlayerView(videos: job.resolved)
+                    } label: {
+                        Label(
+                            "Play \(job.resolved.count) video\(job.resolved.count == 1 ? "" : "s") in app",
+                            systemImage: "play.rectangle.fill"
+                        )
+                    }
+                } header: {
+                    Text("Ready")
+                } footer: {
+                    Text("Plays here with the headers each stream needs, advancing through the list automatically. The VLC export below stays available as an alternative.")
+                }
+            }
+
             if let playlistURL = job.playlistURL {
-                Section("Ready") {
+                Section("Export") {
                     Button {
                         isShowingShareSheet = true
                     } label: {

@@ -4,10 +4,10 @@ An iPhone app (Swift/SwiftUI, built with Xcode) that resolves a JableTV, MissAV,
 SupJav video page URL to its real stream URL and writes a **VLC-ready `.m3u8`
 playlist**, instead of downloading the video.
 
-**This app never downloads video data.** You paste a video page URL, the app fetches
-just the page HTML (a few KB of text) to find the real stream URL, and it writes a
-`.m3u8` playlist file that you hand to **VLC for iOS**. VLC then streams the video
-itself — nothing here writes a video file anywhere.
+**This app never downloads video data.** It fetches just the page HTML (a few KB of
+text) to find the real stream URL, then either **plays the playlist in-app** or writes
+a `.m3u8` you can hand to **VLC for iOS**. Either way the video is streamed from the
+source — nothing here writes a video file anywhere.
 
 All source, UI text, and comments are in English.
 
@@ -78,14 +78,19 @@ Signing in adds two things to Browse:
   mirrored page is noticeably slower to load than a normal listing.
 
 **Playlist** — your queue, accumulated across sites and persisted between launches.
-Name it, then tap **Build VLC playlist**. The app opens each queued video's page just
-long enough to resolve its stream URL, then writes **one `.m3u8` containing every
-video as a separate entry**, so VLC plays through the whole list. Videos that fail to
-resolve are listed individually rather than silently dropped. Finally, tap **Open
-playlist (Copy to VLC…)** and choose VLC from the share sheet.
+Name it, then tap **Resolve playlist**: the app opens each queued video's page just long
+enough to find its stream URL. Videos that fail are listed individually rather than
+silently dropped. Once resolved you get two options:
+
+- **Play N videos in app** — the built-in player. It attaches the `Referer`/`Origin`/
+  `User-Agent` headers each stream needs, advances through the list automatically at the
+  end of each video, and lets you tap any row to jump to it. Native transport controls,
+  AirPlay, full screen, Picture in Picture, and background audio all come along.
+- **Open playlist (Copy to VLC…)** — the `.m3u8` export, one `#EXTINF` entry per video,
+  still available as an alternative.
 
 Nothing is downloaded to the device at any point — the playlist holds remote stream
-URLs, and VLC does the fetching.
+URLs, and whichever player you choose streams them.
 
 The resolution preference (Highest/1080/720/480/360/Lowest) resolves a master HLS
 playlist down to the one variant matching your preference before handing it to VLC.
@@ -130,6 +135,9 @@ Sources/UAVPlaylistApp/
   Queue/
     QueueStore.swift            the persisted playlist queue
     PlaylistJob.swift           queue -> resolve each -> one playlist, with failures
+  Player/
+    PlaylistPlayer.swift        AVPlayer queue: header injection, auto-advance, jump
+    PlayerView.swift            player surface + tappable up-next list
   Playlist/
     ResolutionPreference.swift  persisted user choice
     PlaylistBuilder.swift       writes the multi-entry .m3u8
