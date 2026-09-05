@@ -40,44 +40,80 @@ actively behind a Cloudflare challenge will report "blocked".
 
 ## Using it
 
-1. Install **VLC for iOS** from the App Store (used for playback, not needed to build).
-2. Paste a JableTV/MissAV/SupJav video page URL and tap **Build VLC playlist**.
-3. Tap **Open playlist (Copy to VLC…)** and choose VLC from the share sheet — this
-   copies the `.m3u8` file into VLC's library, which then streams the video.
-4. If the resolved stream needs no special headers, **Open stream directly in VLC**
-   is also available (uses VLC's `vlc://` URL scheme directly, skipping the file).
+Install **VLC for iOS** from the App Store first (used for playback; not needed to build).
 
-The resolution picker (Highest/1080/720/480/360/Lowest) resolves a master HLS
+The app has three tabs:
+
+**Browse** — pick a site, then a category or filter tag (JableTV also exposes its full
+sidebar tag list: Clothing, Body, Acts, Kinks, Story, Roles, Places, Misc). You get a
+paged grid of video cards with thumbnails and durations. **Tap a card to add it to the
+playlist queue** (tap again to remove); the card shows a checkmark while queued. **Add
+all** queues everything on the current page, and **Load more** pages through the listing.
+Each site's search is available from the search field on its category screen.
+
+**Add URL** — paste a single video page URL to queue it directly, for when you already
+have a link.
+
+**Playlist** — your queue, accumulated across sites and persisted between launches.
+Name it, then tap **Build VLC playlist**. The app opens each queued video's page just
+long enough to resolve its stream URL, then writes **one `.m3u8` containing every
+video as a separate entry**, so VLC plays through the whole list. Videos that fail to
+resolve are listed individually rather than silently dropped. Finally, tap **Open
+playlist (Copy to VLC…)** and choose VLC from the share sheet.
+
+Nothing is downloaded to the device at any point — the playlist holds remote stream
+URLs, and VLC does the fetching.
+
+The resolution preference (Highest/1080/720/480/360/Lowest) resolves a master HLS
 playlist down to the one variant matching your preference before handing it to VLC.
 
 ## Architecture
+
+Two halves: **browsers** find videos (listing pages), **extractors** resolve one video
+page to a stream URL. The queue sits between them, and the playlist builder is the
+final step.
 
 ```
 UAVPlaylist.xcodeproj/          Xcode project
 Support/Info-Additions.plist    VLC URL schemes, file-sharing entitlements
 Sources/UAVPlaylistApp/
   App.swift                     entry point
-  ContentView.swift             the one screen: URL field, resolution picker, result
-  PlaylistViewModel.swift       orchestrates extract -> build playlist -> share/open
+  ContentView.swift             tab shell: Browse / Add URL / Playlist
   Models/
-    ExtractedVideo.swift        title/thumbnail/stream URL/headers for one video
+    ExtractedVideo.swift        resolved stream URL + headers for one video
+    VideoListing.swift          a video card from a listing; BrowseCategory
     ExtractionError.swift       English user-facing error messages
   Networking/
     HTTPClient.swift            async URLSession wrapper (Referer/UA headers, cookies)
     RegexUtils.swift            regex-search/findall-style helpers
     PackedJSDecoder.swift       Dean Edwards p,a,c,k,e,d unpacker
     HLSVariantSelector.swift    picks one HLS variant by resolution preference
-  Extractors/
+  Browsers/                     listing/browse side
+    SiteBrowser.swift           protocol + registry
+    SiteCatalog.swift           English category/tag vocabulary
+    JableTVBrowser.swift        live categories, sidebar tags, ?from=N paging
+    MissAVBrowser.swift         fixed categories, ?page=N paging
+    SupJavBrowser.swift         fixed categories, /page/N paging
+  Extractors/                   stream-resolution side
     SiteExtractor.swift         protocol every site conforms to
     ExtractorRegistry.swift     URL -> extractor dispatch
     JableTVExtractor.swift
     MissAVExtractor.swift
     SupJavExtractor.swift
+  Queue/
+    QueueStore.swift            the persisted playlist queue
+    PlaylistJob.swift           queue -> resolve each -> one playlist, with failures
   Playlist/
     ResolutionPreference.swift  persisted user choice
-    PlaylistBuilder.swift       writes the .m3u8 (#EXTINF/#EXTVLCOPT/stream URL)
+    PlaylistBuilder.swift       writes the multi-entry .m3u8
     ShareSheet.swift            UIActivityViewController bridge
     VLCOpener.swift             vlc:// direct-open fallback
+  Views/
+    SitesView.swift             site picker
+    CategoryListView.swift      categories + grouped filter tags + search
+    VideoGridView.swift         paged card grid, tap-to-queue
+    QueueView.swift             queue, build progress, share to VLC
+    AddByURLView.swift          queue a single URL by hand
 ```
 
 ## Legal note
