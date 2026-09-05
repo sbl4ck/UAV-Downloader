@@ -85,7 +85,8 @@ enum MissAVBrowser: SiteBrowser {
         for card in cards {
             guard let anchor = try? card.select("a[href]").first(),
                   let href = try? anchor.attr("href"),
-                  let videoURL = URL(string: href, relativeTo: target)?.absoluteURL,
+                  let resolved = URL(string: href, relativeTo: target)?.absoluteURL,
+                  let videoURL = canonicalVideoURL(resolved),
                   isVideoPage(videoURL),
                   !seen.contains(videoURL) else { continue }
             seen.insert(videoURL)
@@ -126,8 +127,12 @@ enum MissAVBrowser: SiteBrowser {
         var seen = Set<URL>()
 
         for anchor in (try? doc.select("a[href]").array()) ?? [] {
+            // Only thumbnail/card links, not the page's text navigation. A card link
+            // carries an `alt`, or wraps a thumbnail image or a duration badge.
+            guard isCardLink(anchor) else { continue }
             guard let href = try? anchor.attr("href"),
-                  let videoURL = URL(string: href, relativeTo: target)?.absoluteURL,
+                  let resolved = URL(string: href, relativeTo: target)?.absoluteURL,
+                  let videoURL = canonicalVideoURL(resolved),
                   isVideoPage(videoURL),
                   !seen.contains(videoURL) else { continue }
             seen.insert(videoURL)
@@ -166,6 +171,28 @@ enum MissAVBrowser: SiteBrowser {
             ))
         }
         return results
+    }
+
+    /// True when an anchor looks like a video card (thumbnail) link rather than a
+    /// text link in the site's navigation.
+    private static func isCardLink(_ anchor: Element) -> Bool {
+        if let alt = try? anchor.attr("alt"), !alt.isEmpty { return true }
+        if let images = try? anchor.select("img").array(), !images.isEmpty { return true }
+        if let badges = try? anchor.select("span.absolute").array(), !badges.isEmpty { return true }
+        return false
+    }
+
+    /// The canonical video page URL: no query string, no fragment. Listing links can
+    /// carry tracking or playlist-scoped parameters, and the extractor should always
+    /// be handed exactly the same URL shape regardless of where the link came from.
+    private static func canonicalVideoURL(_ url: URL) -> URL? {
+        guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return url }
+        components.query = nil
+        components.fragment = nil
+        var path = components.path
+        while path.count > 1 && path.hasSuffix("/") { path.removeLast() }
+        components.path = path
+        return components.url
     }
 
     /// A MissAV video page, as opposed to a listing/category/playlist link.

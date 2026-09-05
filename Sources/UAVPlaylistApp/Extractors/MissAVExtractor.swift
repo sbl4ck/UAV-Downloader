@@ -31,9 +31,12 @@ enum MissAVExtractor: SiteExtractor {
         }
 
         let text = response.text
-        guard text.contains("og:title"),
-              text.contains("m3u8") || text.contains("eval(function(p,a,c,k,e,d)") else {
-            throw ExtractionError.parseFailed("The page did not contain the expected markers (layout change or missing video).")
+        // Only reject outright when the page isn't a video page at all (a block or
+        // challenge page). Anything else is worth attempting: the marker check used
+        // to be stricter than the parser, so pages carrying a plain, unpacked m3u8
+        // were rejected before extraction ever ran.
+        guard text.contains("og:title") else {
+            throw ExtractionError.parseFailed("The page did not contain the expected markers (layout change, missing video, or a block page).")
         }
 
         let title = firstGroup(#"og:title"\s+content="([^"]+)""#, in: text) ?? ""
@@ -53,6 +56,11 @@ enum MissAVExtractor: SiteExtractor {
                 break
             }
         }
+        // Not every page hides the stream in a packed script — some carry it inline.
+        if streamURLString == nil {
+            streamURLString = firstGroup(#"(https?://[^'"\\;\s]+\.m3u8)"#, in: text)
+        }
+
         guard let masterURLString = streamURLString, let masterURL = URL(string: masterURLString) else {
             throw ExtractionError.noStreamFound("Could not find an m3u8 stream in the page scripts for \(url.absoluteString).")
         }
