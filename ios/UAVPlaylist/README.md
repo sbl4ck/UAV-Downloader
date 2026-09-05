@@ -37,32 +37,41 @@ too. There's no clean equivalent to TLS-fingerprint impersonation in a stock iOS
 
 ## Opening the project
 
-### Option A — open as a Swift package app (Xcode 16+)
+### Option A — `UAVPlaylist.xcodeproj` (any recent Xcode) — recommended
+
+A regular, checked-in Xcode project: `UAVPlaylist.xcodeproj`.
+
+1. Double-click `ios/UAVPlaylist/UAVPlaylist.xcodeproj` (or open it from Xcode's
+   `File > Open…`).
+2. Xcode resolves the one package dependency,
+   [SwiftSoup](https://github.com/scinfu/SwiftSoup) (used for CSS-selector HTML
+   parsing, the same role BeautifulSoup plays in the Python code) — this needs a
+   network connection the first time.
+3. Plug in your iPhone (or pick a simulator) as the run destination.
+4. Select the `UAVPlaylist` target in the project navigator, open the **Signing &
+   Capabilities** tab, and pick your Apple ID under **Team** (Xcode adds a free
+   personal-team automatically if you sign in with `Xcode > Settings > Accounts`).
+   This is the normal one-time step Apple requires to install any app you build
+   yourself onto your own iPhone.
+5. Press **Run** (▶).
+
+The project was generated (not hand-edited) and validated for structural
+correctness — every source file, build phase, and the SwiftSoup package reference
+resolve with no dangling references — but it was not compiled in this environment
+(a Linux container without Xcode). If Xcode reports anything odd on first open,
+it's worth a `File > Packages > Reset Package Caches` and a clean build.
+
+### Option B — open as a Swift package app (Xcode 16+)
+
+The same `Sources/UAVPlaylistApp/` code can also be opened without the `.xcodeproj`
+at all, via `Package.swift`, using Xcode 16's "run a Swift package as an iOS app"
+support:
 
 1. Open `Package.swift` directly in Xcode (`File > Open…`, pick this folder).
-2. Xcode resolves the one dependency, [SwiftSoup](https://github.com/scinfu/SwiftSoup)
-   (used for CSS-selector HTML parsing, the same role BeautifulSoup plays in the
-   Python code).
-3. Pick an iPhone (device or simulator) as the run destination and press **Run**.
+2. Pick an iPhone (device or simulator) as the run destination and press **Run**.
 
-This uses Xcode 16's "run a Swift package as an iOS app" support
-(`Product.iOSApplication` in `Package.swift`), so there's no `.xcodeproj` to
-commit — Xcode generates the app target from `Package.swift` itself. This was not
-compiled/run in this environment (a Linux container without Xcode) — if your Xcode
-version doesn't yet support this product type, use Option B instead.
-
-### Option B — regular Xcode project (any recent Xcode)
-
-1. `File > New > Project… > iOS > App`, interface **SwiftUI**, language **Swift**.
-2. `File > Add Package Dependencies…`, add `https://github.com/scinfu/SwiftSoup.git`.
-3. Delete the template's `ContentView.swift`/`App.swift` and drag in everything under
-   `Sources/UAVPlaylistApp/` (keep the folder structure).
-4. In the target's Info tab, add:
-   - `LSApplicationQueriesSchemes`: `vlc`, `vlc-x-callback`
-   - `UIFileSharingEnabled`: `YES`
-   - `LSSupportsOpeningDocumentsInPlace`: `YES`
-   (the same keys are in `Support/Info-Additions.plist` for reference.)
-5. Run on an iPhone.
+Use this only if you'd rather not have a `.xcodeproj` at all; both options build the
+identical source files.
 
 ## Using it
 

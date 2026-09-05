@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+/* Begin PBXBuildFile section */
+		EA844CB84967445EB2109C2B /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5D5C9435294165A36B038D /* App.swift */; };
+		3B85DD3618CF447DBAD6E5BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56305E7AAC54D91A5618C36 /* ContentView.swift */; };
+		0C561A7A1AF6446D8560D4A4 /* ExtractorRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5FDA2734EE4C12ADBFAA17 /* ExtractorRegistry.swift */; };
+		471BB6DD5E214F2AA676592F /* JableTVExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FADCA7D0C004F00B1910B65 /* JableTVExtractor.swift */; };
+		FEDF683FDF614B53BA8F1D52 /* MissAVExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C78232938B14F5B984E8909 /* MissAVExtractor.swift */; };
+		F5E6E72057864AE5BCCF1B76 /* SiteExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13E6A1CCCB147B99FF589C8 /* SiteExtractor.swift */; };
+		5B7F3908A9F24DD38EC82EE1 /* SupJavExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D37284D76D74F3BBE71A20B /* SupJavExtractor.swift */; };
+		0D2C43E5F2624722889C7E5C /* ExtractedVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41ED649B3074554B22EBEBA /* ExtractedVideo.swift */; };
+		69B341024FD343999FF4D8B2 /* ExtractionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD378DC7EE0C4E61949BFF16 /* ExtractionError.swift */; };
+		5E5972CF41C848F89CBBF523 /* HLSVariantSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75941ACCFCF749E19425CE3B /* HLSVariantSelector.swift */; };
+		4098CA1683F94690AD083B81 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C94718880A34FAD805BADF0 /* HTTPClient.swift */; };
+		5BF1A193A8B44810B5417AD3 /* PackedJSDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A014F992F9854EEBAEA69608 /* PackedJSDecoder.swift */; };
+		FEC854F90D484A4A81846F14 /* RegexUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76BBDA81FA741CA8276A120 /* RegexUtils.swift */; };
+		66FA21C8A054424BAF0E66C4 /* PlaylistBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08D4D5671E2423492A14E21 /* PlaylistBuilder.swift */; };
+		E3D5513589C343F0845ABE8A /* ResolutionPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA271877482B475390D7D9F3 /* ResolutionPreference.swift */; };
+		B2631D8A02B84AD3B5898056 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A875D66AC66648BE8DC514DB /* ShareSheet.swift */; };
+		343BAEC1A1894CC48CAA7A54 /* VLCOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EC0D07577846029465A54E /* VLCOpener.swift */; };
+		9D0C4C7535E14687BFA86392 /* PlaylistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E884B71707E6439BA2966A64 /* PlaylistViewModel.swift */; };
+		54AB4859701143EAAEB7BC61 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = B84821957F77449DA84C4FA3 /* SwiftSoup */; };
+/* End PBXBuildFile section */
+/* Begin PBXFileReference section */
+		7B5D5C9435294165A36B038D /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		B56305E7AAC54D91A5618C36 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CE5FDA2734EE4C12ADBFAA17 /* ExtractorRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractorRegistry.swift; sourceTree = "<group>"; };
+		1FADCA7D0C004F00B1910B65 /* JableTVExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JableTVExtractor.swift; sourceTree = "<group>"; };
+		7C78232938B14F5B984E8909 /* MissAVExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissAVExtractor.swift; sourceTree = "<group>"; };
+		C13E6A1CCCB147B99FF589C8 /* SiteExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteExtractor.swift; sourceTree = "<group>"; };
+		0D37284D76D74F3BBE71A20B /* SupJavExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupJavExtractor.swift; sourceTree = "<group>"; };
+		F41ED649B3074554B22EBEBA /* ExtractedVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractedVideo.swift; sourceTree = "<group>"; };
+		AD378DC7EE0C4E61949BFF16 /* ExtractionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractionError.swift; sourceTree = "<group>"; };
+		75941ACCFCF749E19425CE3B /* HLSVariantSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLSVariantSelector.swift; sourceTree = "<group>"; };
+		7C94718880A34FAD805BADF0 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		A014F992F9854EEBAEA69608 /* PackedJSDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackedJSDecoder.swift; sourceTree = "<group>"; };
+		D76BBDA81FA741CA8276A120 /* RegexUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexUtils.swift; sourceTree = "<group>"; };
+		B08D4D5671E2423492A14E21 /* PlaylistBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistBuilder.swift; sourceTree = "<group>"; };
+		AA271877482B475390D7D9F3 /* ResolutionPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolutionPreference.swift; sourceTree = "<group>"; };
+		A875D66AC66648BE8DC514DB /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
+		58EC0D07577846029465A54E /* VLCOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLCOpener.swift; sourceTree = "<group>"; };
+		E884B71707E6439BA2966A64 /* PlaylistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewModel.swift; sourceTree = "<group>"; };
+		FF814D95F92149D2932C5A5F /* Info-Additions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Additions.plist"; sourceTree = "<group>"; };
+		4CE7CD71B6F641D380A1BBB7 /* UAVPlaylist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UAVPlaylist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+/* Begin PBXFrameworksBuildPhase section */
+		90DCE939B25949F6B95C0E8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54AB4859701143EAAEB7BC61 /* SwiftSoup in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+/* Begin PBXGroup section */
+		B97271B13D3D4A059ED8BF0D /* Extractors */ = {
+			isa = PBXGroup;
+			children = (
+				CE5FDA2734EE4C12ADBFAA17 /* ExtractorRegistry.swift */,
+				1FADCA7D0C004F00B1910B65 /* JableTVExtractor.swift */,
+				7C78232938B14F5B984E8909 /* MissAVExtractor.swift */,
+				C13E6A1CCCB147B99FF589C8 /* SiteExtractor.swift */,
+				0D37284D76D74F3BBE71A20B /* SupJavExtractor.swift */,
+			);
+			path = Extractors;
+			sourceTree = "<group>";
+		};
+		88F035CF2DBC44BC9EA187D6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F41ED649B3074554B22EBEBA /* ExtractedVideo.swift */,
+				AD378DC7EE0C4E61949BFF16 /* ExtractionError.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9E2B80182052446DA49AF66D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				75941ACCFCF749E19425CE3B /* HLSVariantSelector.swift */,
+				7C94718880A34FAD805BADF0 /* HTTPClient.swift */,
+				A014F992F9854EEBAEA69608 /* PackedJSDecoder.swift */,
+				D76BBDA81FA741CA8276A120 /* RegexUtils.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		CE46AC8FD5774994AB5EE1F2 /* Playlist */ = {
+			isa = PBXGroup;
+			children = (
+				B08D4D5671E2423492A14E21 /* PlaylistBuilder.swift */,
+				AA271877482B475390D7D9F3 /* ResolutionPreference.swift */,
+				A875D66AC66648BE8DC514DB /* ShareSheet.swift */,
+				58EC0D07577846029465A54E /* VLCOpener.swift */,
+			);
+			path = Playlist;
+			sourceTree = "<group>";
+		};
+		C93EABB37A3E44D384F6EDAD /* UAVPlaylistApp */ = {
+			isa = PBXGroup;
+			children = (
+				B97271B13D3D4A059ED8BF0D /* Extractors */,
+				88F035CF2DBC44BC9EA187D6 /* Models */,
+				9E2B80182052446DA49AF66D /* Networking */,
+				CE46AC8FD5774994AB5EE1F2 /* Playlist */,
+				7B5D5C9435294165A36B038D /* App.swift */,
+				B56305E7AAC54D91A5618C36 /* ContentView.swift */,
+				E884B71707E6439BA2966A64 /* PlaylistViewModel.swift */,
+			);
+			path = UAVPlaylistApp;
+			sourceTree = "<group>";
+		};
+		5A6F2A396FCE471BAE2823B8 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				FF814D95F92149D2932C5A5F /* Info-Additions.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		55C01CCB051546EE9230B1A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4CE7CD71B6F641D380A1BBB7 /* UAVPlaylist.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC4810DC2B4846B5A5C00860 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C93EABB37A3E44D384F6EDAD /* UAVPlaylistApp */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		533F33CE047642D1809CE7FF = {
+			isa = PBXGroup;
+			children = (
+				AC4810DC2B4846B5A5C00860 /* Sources */,
+				5A6F2A396FCE471BAE2823B8 /* Support */,
+				55C01CCB051546EE9230B1A3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+/* Begin PBXNativeTarget section */
+		C07847EC54844E4E93F5A9BF /* UAVPlaylist */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50FDAB5D6EF14844B024D8AA /* Build configuration list for PBXNativeTarget "UAVPlaylist" */;
+			buildPhases = (
+				A720A074C21A4EADB73312F6 /* Sources */,
+				90DCE939B25949F6B95C0E8B /* Frameworks */,
+				84321CD6DFE84085833147EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UAVPlaylist;
+			packageProductDependencies = (
+				B84821957F77449DA84C4FA3 /* SwiftSoup */,
+			);
+			productName = UAVPlaylist;
+			productReference = 4CE7CD71B6F641D380A1BBB7 /* UAVPlaylist.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+/* Begin PBXProject section */
+		CC91C058156E4EE79FDF468F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					C07847EC54844E4E93F5A9BF = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = 19ECBD24645D43A193295E27 /* Build configuration list for PBXProject "UAVPlaylist" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 533F33CE047642D1809CE7FF;
+			packageReferences = (
+				230CC73A69B04D09B53FAC1A /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+			);
+			productRefGroup = 55C01CCB051546EE9230B1A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C07847EC54844E4E93F5A9BF /* UAVPlaylist */,
+			);
+		};
+/* End PBXProject section */
+/* Begin PBXResourcesBuildPhase section */
+		84321CD6DFE84085833147EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+/* Begin PBXSourcesBuildPhase section */
+		A720A074C21A4EADB73312F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA844CB84967445EB2109C2B /* App.swift in Sources */,
+				3B85DD3618CF447DBAD6E5BD /* ContentView.swift in Sources */,
+				0C561A7A1AF6446D8560D4A4 /* ExtractorRegistry.swift in Sources */,
+				471BB6DD5E214F2AA676592F /* JableTVExtractor.swift in Sources */,
+				FEDF683FDF614B53BA8F1D52 /* MissAVExtractor.swift in Sources */,
+				F5E6E72057864AE5BCCF1B76 /* SiteExtractor.swift in Sources */,
+				5B7F3908A9F24DD38EC82EE1 /* SupJavExtractor.swift in Sources */,
+				0D2C43E5F2624722889C7E5C /* ExtractedVideo.swift in Sources */,
+				69B341024FD343999FF4D8B2 /* ExtractionError.swift in Sources */,
+				5E5972CF41C848F89CBBF523 /* HLSVariantSelector.swift in Sources */,
+				4098CA1683F94690AD083B81 /* HTTPClient.swift in Sources */,
+				5BF1A193A8B44810B5417AD3 /* PackedJSDecoder.swift in Sources */,
+				FEC854F90D484A4A81846F14 /* RegexUtils.swift in Sources */,
+				66FA21C8A054424BAF0E66C4 /* PlaylistBuilder.swift in Sources */,
+				E3D5513589C343F0845ABE8A /* ResolutionPreference.swift in Sources */,
+				B2631D8A02B84AD3B5898056 /* ShareSheet.swift in Sources */,
+				343BAEC1A1894CC48CAA7A54 /* VLCOpener.swift in Sources */,
+				9D0C4C7535E14687BFA86392 /* PlaylistViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+/* Begin XCBuildConfiguration section */
+		242CC81F594749ABA66D143D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		200B9340F48D4AECB7D90EE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3DE1A96644514E68BF823751 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Support/Info-Additions.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "UAV Playlist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.uavdownloader.playlist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		CB0CFA20A46E4E379D75232A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Support/Info-Additions.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "UAV Playlist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.uavdownloader.playlist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+/* Begin XCConfigurationList section */
+		19ECBD24645D43A193295E27 /* Build configuration list for PBXProject "UAVPlaylist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				242CC81F594749ABA66D143D /* Debug */,
+				200B9340F48D4AECB7D90EE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50FDAB5D6EF14844B024D8AA /* Build configuration list for PBXNativeTarget "UAVPlaylist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DE1A96644514E68BF823751 /* Debug */,
+				CB0CFA20A46E4E379D75232A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+/* Begin XCRemoteSwiftPackageReference section */
+		230CC73A69B04D09B53FAC1A /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+/* Begin XCSwiftPackageProductDependency section */
+		B84821957F77449DA84C4FA3 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 230CC73A69B04D09B53FAC1A /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = CC91C058156E4EE79FDF468F /* Project object */;
+}

@@ -1,0 +1,9 @@
+# Xcode / SwiftPM user- and machine-specific state — safe to ignore, regenerated locally.
+xcuserdata/
+*.xcuserstate
+DerivedData/
+.build/
+.swiftpm/
+
+# Package.resolved is intentionally NOT ignored here — for an app (as opposed to a
+# library), committing it pins the exact SwiftSoup version everyone builds against.
