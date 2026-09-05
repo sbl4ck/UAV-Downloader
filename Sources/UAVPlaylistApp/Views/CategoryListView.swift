@@ -1,11 +1,13 @@
 import SwiftUI
 
-/// Categories and filter tags for one site.
+/// Categories and filter tags for one site, selected with checkboxes so several can be
+/// combined at once — the same multi-select shape the desktop app's category picker had.
 struct CategoryListView: View {
     let siteName: String
 
     @State private var categories: [BrowseCategory] = []
     @State private var tags: [BrowseCategory] = []
+    @State private var selected: Set<BrowseCategory> = []
     @State private var isLoading = true
     @State private var searchText = ""
 
@@ -21,6 +23,19 @@ struct CategoryListView: View {
         }
     }
 
+    /// Selection in the order the sections present it, so the merged listing is stable.
+    private var orderedSelection: [BrowseCategory] {
+        (categories + tags).filter { selected.contains($0) }
+    }
+
+    private var browseTitle: String {
+        switch orderedSelection.count {
+        case 0: return siteName
+        case 1: return orderedSelection[0].name
+        default: return "\(orderedSelection.count) selected"
+        }
+    }
+
     var body: some View {
         List {
             if !searchText.trimmingCharacters(in: .whitespaces).isEmpty,
@@ -30,7 +45,7 @@ struct CategoryListView: View {
                         VideoGridView(
                             siteName: siteName,
                             title: "Search: \(searchText)",
-                            listingURL: searchURL
+                            sources: [BrowseCategory(name: searchText, url: searchURL)]
                         )
                     }
                 }
@@ -46,12 +61,11 @@ struct CategoryListView: View {
             if !categories.isEmpty {
                 Section("Categories") {
                     ForEach(categories) { category in
-                        NavigationLink(category.name) {
-                            VideoGridView(
-                                siteName: siteName,
-                                title: category.name,
-                                listingURL: category.url
-                            )
+                        CheckboxRow(
+                            title: category.name,
+                            isOn: selected.contains(category)
+                        ) {
+                            toggle(category)
                         }
                     }
                 }
@@ -60,12 +74,11 @@ struct CategoryListView: View {
             ForEach(groupedTags, id: \.0) { groupName, items in
                 Section(groupName) {
                     ForEach(items) { tag in
-                        NavigationLink(tag.name) {
-                            VideoGridView(
-                                siteName: siteName,
-                                title: tag.name,
-                                listingURL: tag.url
-                            )
+                        CheckboxRow(
+                            title: tag.name,
+                            isOn: selected.contains(tag)
+                        ) {
+                            toggle(tag)
                         }
                     }
                 }
@@ -73,6 +86,32 @@ struct CategoryListView: View {
         }
         .navigationTitle(siteName)
         .searchable(text: $searchText, prompt: "Search \(siteName)")
+        .safeAreaInset(edge: .bottom) {
+            if !orderedSelection.isEmpty {
+                NavigationLink {
+                    VideoGridView(
+                        siteName: siteName,
+                        title: browseTitle,
+                        sources: orderedSelection
+                    )
+                } label: {
+                    Text("Browse \(orderedSelection.count) selected")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.accentColor, in: RoundedRectangle(cornerRadius: 12))
+                        .foregroundStyle(.white)
+                        .padding(.horizontal)
+                        .padding(.bottom, 8)
+                }
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button("Clear") { selected.removeAll() }
+                    .disabled(selected.isEmpty)
+            }
+        }
         .task {
             guard categories.isEmpty else { return }
             guard let browser else {
@@ -83,5 +122,34 @@ struct CategoryListView: View {
             categories = await browser.categories()
             isLoading = false
         }
+    }
+
+    private func toggle(_ category: BrowseCategory) {
+        if selected.contains(category) {
+            selected.remove(category)
+        } else {
+            selected.insert(category)
+        }
+    }
+}
+
+/// A tappable checkbox row.
+struct CheckboxRow: View {
+    let title: String
+    let isOn: Bool
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            HStack {
+                Image(systemName: isOn ? "checkmark.square.fill" : "square")
+                    .foregroundStyle(isOn ? Color.accentColor : Color.secondary)
+                Text(title)
+                    .foregroundStyle(.primary)
+                Spacer()
+            }
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
     }
 }

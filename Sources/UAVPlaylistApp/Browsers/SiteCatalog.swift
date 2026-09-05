@@ -130,3 +130,50 @@ enum SiteCatalog {
         "Clothing", "Body", "Acts", "Kinks", "Story", "Roles", "Places", "Misc",
     ]
 }
+
+extension SiteCatalog {
+    /// Slug -> English label, built from the tag table above.
+    static let englishNamesBySlug: [String: String] = {
+        var map: [String: String] = [:]
+        for entry in jableTags {
+            map[entry.slug.lowercased()] = entry.name
+        }
+        return map
+    }()
+
+    /// True when a string contains anything outside basic Latin — the signal that a
+    /// site handed us a localized (CJK) label despite being asked for English.
+    static func containsNonEnglish(_ text: String) -> Bool {
+        text.unicodeScalars.contains { $0.value > 0x7F }
+    }
+
+    /// Guarantees an English menu label. Uses the known translation for a slug when we
+    /// have one; otherwise turns the slug itself into a readable title ("big-tits" ->
+    /// "Big Tits"). Falls back to the site's own label only when it is already English.
+    static func englishName(slug: String, siteLabel: String) -> String {
+        let key = slug.lowercased()
+        if let known = englishNamesBySlug[key] {
+            return known
+        }
+        if !siteLabel.isEmpty && !containsNonEnglish(siteLabel) {
+            return siteLabel
+        }
+        return titleCased(slug: slug)
+    }
+
+    static func titleCased(slug: String) -> String {
+        let words = slug
+            .replacingOccurrences(of: "_", with: "-")
+            .split(separator: "-")
+            .map { part -> String in
+                let lower = part.lowercased()
+                // Keep short initialisms upper-cased (ol, ntr, 3p, pov…).
+                if lower.count <= 3 && lower.rangeOfCharacter(from: .lowercaseLetters) != nil {
+                    return lower.uppercased()
+                }
+                return lower.prefix(1).uppercased() + lower.dropFirst()
+            }
+        let joined = words.joined(separator: " ")
+        return joined.isEmpty ? "Untitled" : joined
+    }
+}

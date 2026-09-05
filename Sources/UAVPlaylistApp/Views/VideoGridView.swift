@@ -1,17 +1,19 @@
 import SwiftUI
 
-/// A paged video listing. Tapping a card adds/removes it from the playlist queue.
+/// A paged video listing. When several categories are selected, their pages are fetched
+/// together and merged into one de-duplicated grid (a video appearing in two selected
+/// categories shows once). Tapping a card adds/removes it from the playlist queue.
 struct VideoGridView: View {
     let siteName: String
     let title: String
-    let listingURL: URL
+    let sources: [BrowseCategory]
 
     @EnvironmentObject private var queue: QueueStore
 
     @State private var videos: [VideoListing] = []
-    @State private var page = 1
+    @State private var nextPage: [URL: Int] = [:]
+    @State private var exhausted: Set<URL> = []
     @State private var isLoading = false
-    @State private var reachedEnd = false
     @State private var errorMessage: String?
 
     private let columns = [GridItem(.adaptive(minimum: 150), spacing: 12)]
@@ -20,8 +22,21 @@ struct VideoGridView: View {
         BrowserRegistry.browser(named: siteName)
     }
 
+    private var reachedEnd: Bool {
+        exhausted.count >= sources.count
+    }
+
     var body: some View {
         ScrollView {
+            if sources.count > 1 {
+                Text(sources.map(\.name).joined(separator: " · "))
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 12)
+                    .padding(.top, 8)
+            }
+
             if let errorMessage {
                 Text(errorMessage)
                     .font(.footnote)
@@ -70,26 +85,40 @@ struct VideoGridView: View {
         }
     }
 
+    /// Pulls the next page from every source that still has one, then merges.
     private func loadNextPage() async {
         guard !isLoading, !reachedEnd, let browser else { return }
         isLoading = true
         errorMessage = nil
-        do {
-            let batch = try await browser.videos(at: listingURL, page: page)
-            let known = Set(videos.map(\.url))
-            let fresh = batch.filter { !known.contains($0.url) }
-            if fresh.isEmpty {
-                reachedEnd = true
-            } else {
-                videos.append(contentsOf: fresh)
-                page += 1
+
+        var known = Set(videos.map(\.url))
+        var merged: [VideoListing] = []
+        var failures: [String] = []
+
+        for source in sources where !exhausted.contains(source.url) {
+            let page = nextPage[source.url] ?? 1
+            do {
+                let batch = try await browser.videos(at: source.url, page: page)
+                let fresh = batch.filter { !known.contains($0.url) }
+                if batch.isEmpty {
+                    exhausted.insert(source.url)
+                } else {
+                    nextPage[source.url] = page + 1
+                    known.formUnion(fresh.map(\.url))
+                    merged.append(contentsOf: fresh)
+                }
+            } catch let error as ExtractionError {
+                exhausted.insert(source.url)
+                failures.append("\(source.name): \(error.errorDescription ?? "failed")")
+            } catch {
+                exhausted.insert(source.url)
+                failures.append("\(source.name): \(error.localizedDescription)")
             }
-        } catch let error as ExtractionError {
-            errorMessage = error.errorDescription
-            reachedEnd = true
-        } catch {
-            errorMessage = error.localizedDescription
-            reachedEnd = true
+        }
+
+        videos.append(contentsOf: merged)
+        if !failures.isEmpty {
+            errorMessage = failures.joined(separator: "\n")
         }
         isLoading = false
     }

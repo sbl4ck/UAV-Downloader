@@ -8,18 +8,18 @@ enum MissAVBrowser: SiteBrowser {
     private static let root = "https://missav.ai"
 
     private static let fixedCategories: [(String, String)] = [
-        ("Today's Hot", "\(root)/dm298/today-hot"),
-        ("Weekly Hot", "\(root)/dm170/weekly-hot"),
-        ("Monthly Hot", "\(root)/dm270/monthly-hot"),
-        ("Chinese Subtitles", "\(root)/dm278/chinese-subtitle"),
-        ("Latest", "\(root)/dm539/new"),
-        ("New Releases", "\(root)/dm634/release"),
-        ("Uncensored Leaks", "\(root)/dm817/uncensored-leak"),
-        ("SIRO", "\(root)/dm36/siro"),
-        ("FC2", "\(root)/dm541/fc2"),
-        ("Madou Media", "\(root)/dm63/madou"),
-        ("Tokyo Hot", "\(root)/dm42/tokyohot"),
-        ("1Pondo", "\(root)/dm4854130/1pondo"),
+        ("Today's Hot", "\(root)/dm298/en/today-hot"),
+        ("Weekly Hot", "\(root)/dm170/en/weekly-hot"),
+        ("Monthly Hot", "\(root)/dm270/en/monthly-hot"),
+        ("Chinese Subtitles", "\(root)/dm278/en/chinese-subtitle"),
+        ("Latest", "\(root)/dm539/en/new"),
+        ("New Releases", "\(root)/dm634/en/release"),
+        ("Uncensored Leaks", "\(root)/dm817/en/uncensored-leak"),
+        ("SIRO", "\(root)/dm36/en/siro"),
+        ("FC2", "\(root)/dm541/en/fc2"),
+        ("Madou Media", "\(root)/dm63/en/madou"),
+        ("Tokyo Hot", "\(root)/dm42/en/tokyohot"),
+        ("1Pondo", "\(root)/dm4854130/en/1pondo"),
     ]
 
     static func categories() async -> [BrowseCategory] {
@@ -98,7 +98,7 @@ enum MissAVBrowser: SiteBrowser {
 
     static func searchURL(query: String) -> URL? {
         let encoded = query.addingPercentEncoding(withAllowedCharacters: .alphanumerics) ?? query
-        return URL(string: "\(root)/search/\(encoded)")
+        return URL(string: "\(root)/en/search/\(encoded)")
     }
 
     private static func pageURL(base: URL, page: Int) -> URL {

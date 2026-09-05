@@ -44,12 +44,19 @@ Install **VLC for iOS** from the App Store first (used for playback; not needed 
 
 The app has three tabs:
 
-**Browse** — pick a site, then a category or filter tag (JableTV also exposes its full
-sidebar tag list: Clothing, Body, Acts, Kinks, Story, Roles, Places, Misc). You get a
-paged grid of video cards with thumbnails and durations. **Tap a card to add it to the
-playlist queue** (tap again to remove); the card shows a checkmark while queued. **Add
-all** queues everything on the current page, and **Load more** pages through the listing.
-Each site's search is available from the search field on its category screen.
+**Browse** — pick a site, then tick **checkboxes** next to any number of categories or
+filter tags (JableTV also exposes its full sidebar tag list: Clothing, Body, Acts, Kinks,
+Story, Roles, Places, Misc). Tap **Browse N selected** and the listings are fetched
+together and merged into one de-duplicated grid — a video that appears in two selected
+categories shows once. **Tap a card to add it to the playlist queue** (tap again to
+remove); the card shows a checkmark while queued. **Add all** queues everything loaded so
+far, and **Load more** advances every selected category by a page. Each site's search is
+available from the search field on its category screen.
+
+All menu, category, and tag labels are English. JableTV is asked for English via its
+`kt_rt_lang` cookie, MissAV categories use its `/en/` routes, and any label that still
+comes back localized is replaced with a known English name for that slug (or a title-cased
+form of the slug), so nothing non-English reaches the menus.
 
 **Add URL** — paste a single video page URL to queue it directly, for when you already
 have a link.
@@ -90,7 +97,7 @@ Sources/UAVPlaylistApp/
     HLSVariantSelector.swift    picks one HLS variant by resolution preference
   Browsers/                     listing/browse side
     SiteBrowser.swift           protocol + registry
-    SiteCatalog.swift           English category/tag vocabulary
+    SiteCatalog.swift           English category/tag vocabulary + label fallback
     JableTVBrowser.swift        live categories, sidebar tags, ?from=N paging
     MissAVBrowser.swift         fixed categories, ?page=N paging
     SupJavBrowser.swift         fixed categories, /page/N paging
@@ -110,8 +117,8 @@ Sources/UAVPlaylistApp/
     VLCOpener.swift             vlc:// direct-open fallback
   Views/
     SitesView.swift             site picker
-    CategoryListView.swift      categories + grouped filter tags + search
-    VideoGridView.swift         paged card grid, tap-to-queue
+    CategoryListView.swift      multi-select checkboxes for categories + tags
+    VideoGridView.swift         merged paged card grid, tap-to-queue
     QueueView.swift             queue, build progress, share to VLC
     AddByURLView.swift          queue a single URL by hand
 ```

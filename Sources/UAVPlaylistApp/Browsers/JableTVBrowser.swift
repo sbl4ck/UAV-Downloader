@@ -2,7 +2,11 @@ import Foundation
 import SwiftSoup
 
 /// Swift port of `JableTVBrowser` / `JableTVList` browse logic.
-/// Category and tag names use the English labels from the original localization table.
+///
+/// JableTV serves its category and video labels in Traditional Chinese by default and
+/// switches language via a `kt_rt_lang` cookie — the same mechanism the desktop app's
+/// `_apply_jable_lang` used. We always request English, and every label still goes
+/// through `SiteCatalog.englishName` so nothing localized can reach the menu.
 enum JableTVBrowser: SiteBrowser {
     static let siteName = "JableTV"
     private static let root = "https://jable.tv"
@@ -13,12 +17,26 @@ enum JableTVBrowser: SiteBrowser {
         ("New", "\(root)/new-release/"),
     ]
 
+    /// Ask JableTV (and its fs1.app mirror) for English labels.
+    static func applyLanguageCookie() {
+        for domain in [".jable.tv", ".fs1.app"] {
+            guard let cookie = HTTPCookie(properties: [
+                .domain: domain,
+                .path: "/",
+                .name: "kt_rt_lang",
+                .value: "en",
+            ]) else { continue }
+            HTTPCookieStorage.shared.setCookie(cookie)
+        }
+    }
+
     static func categories() async -> [BrowseCategory] {
+        applyLanguageCookie()
+
         var result = homepageSections.compactMap { name, urlString in
             URL(string: urlString).map { BrowseCategory(name: name, url: $0) }
         }
 
-        // The live category list, same source as the desktop app's /categories/ scrape.
         guard let categoriesURL = URL(string: "\(root)/categories/"),
               let response = try? await HTTPClient.shared.get(categoriesURL, timeout: 30),
               response.response.statusCode == 200,
@@ -32,16 +50,20 @@ enum JableTVBrowser: SiteBrowser {
             guard let href = try? anchor.attr("href"),
                   href.contains("/categories/"),
                   href != "\(root)/categories/",
-                  let text = try? anchor.text(),
-                  !text.isEmpty,
                   !seen.contains(href),
                   let url = URL(string: href, relativeTo: URL(string: root))?.absoluteURL else { continue }
             seen.insert(href)
+
             // Strip the trailing "N videos" count the site appends to the label.
-            let name = text.replacingOccurrences(
+            let rawLabel = ((try? anchor.text()) ?? "").replacingOccurrences(
                 of: #"\d[\d,]*\s*(?:videos?|部影片)"#,
                 with: "", options: [.regularExpression, .caseInsensitive]
             ).trimmingCharacters(in: .whitespacesAndNewlines)
+
+            let slug = url.absoluteString
+                .trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+                .split(separator: "/").last.map(String.init) ?? ""
+            let name = SiteCatalog.englishName(slug: slug, siteLabel: rawLabel)
             guard !name.isEmpty else { continue }
             result.append(BrowseCategory(name: name, url: url))
         }
@@ -57,6 +79,8 @@ enum JableTVBrowser: SiteBrowser {
     }
 
     static func videos(at url: URL, page: Int) async throws -> [VideoListing] {
+        applyLanguageCookie()
+
         let target = pageURL(base: url, page: page)
         let response: HTTPResponse
         do {
