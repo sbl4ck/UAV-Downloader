@@ -63,7 +63,13 @@ have a link.
 
 **Account** — sign in to a MissAV account and its **saved playlists appear as their own
 checkbox section** ("My Playlists") under MissAV in Browse, alongside the built-in
-categories. Tick one or several, browse them, and queue videos exactly as you would
+categories. The same playlists are also mirrored into the **JableTV** site under
+**"From MissAV Playlists"**: browsing one reads the MissAV playlist, pulls the JAV code
+(`ABCD-123`) off each entry, searches JableTV for it, and keeps the best match —
+**preferring the uncensored cut** when the results offer one. Entries whose id isn't a
+standard code (amateur/FC2-style), and codes JableTV has no result for, are skipped.
+Because each code costs one search, and searches run one at a time to avoid tripping
+rate limits, a mirrored page takes noticeably longer to load than a normal listing. Tick one or several, browse them, and queue videos exactly as you would
 from any other category. Credentials go only to `missav.ai`; with "Remember me" on they
 are stored in the device Keychain (device-only, requires unlock), and signing out
 deletes them and clears the session cookies.
@@ -108,7 +114,8 @@ Sources/UAVPlaylistApp/
   Browsers/                     listing/browse side
     SiteBrowser.swift           protocol + registry
     SiteCatalog.swift           English category/tag vocabulary + label fallback
-    JableTVBrowser.swift        live categories, sidebar tags, ?from=N paging
+    JableTVBrowser.swift        live categories, sidebar tags, MissAV mirroring
+    JAVCode.swift               code extraction + cross-site matching/uncensored score
     MissAVBrowser.swift         categories + account playlists, ?page=N paging
     SupJavBrowser.swift         fixed categories, /page/N paging
   Extractors/                   stream-resolution side

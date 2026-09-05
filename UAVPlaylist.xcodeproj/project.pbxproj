@@ -6,235 +6,238 @@
 	objectVersion = 54;
 	objects = {
 /* Begin PBXBuildFile section */
-		6C4F0E917F0A407E8485310C /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA73A1BF775496BADF5CA6D /* KeychainStore.swift */; };
-		804F4DE6DB4E495EAB1AD4E6 /* MissAVAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC3804E5E1445D2806425E3 /* MissAVAccount.swift */; };
-		E9E0CAD8C26744BDBFB40E42 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360F263C8E7640BB895D26C3 /* App.swift */; };
-		C7A08E406C294996905F677F /* JableTVBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9361B486DC42ABB98BD476 /* JableTVBrowser.swift */; };
-		E89BC6F292EA41EA89FB0362 /* MissAVBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859D519A115D4BAFAA93FBA7 /* MissAVBrowser.swift */; };
-		A1CA83EDC27E46D2B06B430B /* SiteBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E4FB0B28E94DF7A0108F3A /* SiteBrowser.swift */; };
-		36C9C5CDED7B4FBD8B9B8B30 /* SiteCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B83BA1AFAC431ABD355BF7 /* SiteCatalog.swift */; };
-		8A5F0D62FA224ED58EC83136 /* SupJavBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D3B13A76E54C67903A2572 /* SupJavBrowser.swift */; };
-		BEE2DD9AF81D4784830B770D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC58021AADDF4FF9AE85079A /* ContentView.swift */; };
-		F286FDABD0244031A43AEA46 /* ExtractorRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7011FB409B7D4381A783CAFF /* ExtractorRegistry.swift */; };
-		1058FDA4425C455FA5A0F342 /* JableTVExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF078DE226143DBA959D419 /* JableTVExtractor.swift */; };
-		13402930B6DB4AD989441069 /* MissAVExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FED9351DFF4904BAB99A15 /* MissAVExtractor.swift */; };
-		DB8B3205054B481B94FF9A03 /* SiteExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9A420FC7614FA6AE5CD749 /* SiteExtractor.swift */; };
-		7B03FD079B9240438678E9C9 /* SupJavExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B006178694B8996494711 /* SupJavExtractor.swift */; };
-		18FB857E232A4063917B6F32 /* ExtractedVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0091A8DC494FE59D76827A /* ExtractedVideo.swift */; };
-		67AE9D46D57248DB9FA15AA6 /* ExtractionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B384DF4B49474FE78C2EFD74 /* ExtractionError.swift */; };
-		5E5F4F88820D4FF880993930 /* VideoListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600B945E632949FC90B81C17 /* VideoListing.swift */; };
-		2BCC6BC506594C09A8E92A9F /* HLSVariantSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506A93E6072F47A2B6A72A60 /* HLSVariantSelector.swift */; };
-		47A5ABD4D61B4C269D9A66D1 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F49A9535EF4622BB27453E /* HTTPClient.swift */; };
-		9586335ADD42434198A607DA /* PackedJSDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C274DBDA1814AFFB9899058 /* PackedJSDecoder.swift */; };
-		318977799F95416DA79453E9 /* RegexUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573868431E549F28612CFBE /* RegexUtils.swift */; };
-		CBE93A8FD1E048A091B775B0 /* PlaylistBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1BF82E3804EB494B49A8F /* PlaylistBuilder.swift */; };
-		94BA2DB89A844E899C4E34A8 /* ResolutionPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DE367C8EDE46FFBC0F5126 /* ResolutionPreference.swift */; };
-		29465F49FC1947CDA45B0891 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6206B96CE9A240698D413007 /* ShareSheet.swift */; };
-		EB087E2D1878412C93A6FA39 /* VLCOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3679376846F486BADCD1343 /* VLCOpener.swift */; };
-		0CC38638CF8944469006B587 /* PlaylistJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A8E3A2B8A9405EA496EE8E /* PlaylistJob.swift */; };
-		3104C5242E604991A9446F6B /* QueueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6B370942534DC086C512BE /* QueueStore.swift */; };
-		FEAA0A30B6424926BDB003F9 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C439187CC384D4A89A3D3DE /* AccountView.swift */; };
-		ADE543747E4C4FBEB31B9157 /* AddByURLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253E0857CC43419E9312686A /* AddByURLView.swift */; };
-		943DC72BBE1A4F7E988E570D /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F287CF8695B4ED49957D903 /* CategoryListView.swift */; };
-		EF03546771EC4B32A71AEBF1 /* QueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91C6A0A1CD44796962E7E23 /* QueueView.swift */; };
-		1A59D97F660B410FA6CF8ED6 /* SitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BED068F2842D194C27C4A /* SitesView.swift */; };
-		9B65A771E9AE4927BCEE9362 /* VideoGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE1B6D7D413481BAF85339B /* VideoGridView.swift */; };
-		1864FC9507C74040B1C7B430 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = F0CB0F99EC2C469DBD9035F9 /* SwiftSoup */; };
+		8BC73BA3CCB44B97ADFB44A9 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F687B9E5C2FA46C5BCF38138 /* KeychainStore.swift */; };
+		F8E041F7262647C28268531B /* MissAVAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31E33D56ACF4BDBAB35A1EE /* MissAVAccount.swift */; };
+		50F2B5D939CA45CC88CFCC9E /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543B5D495915495CB95D2A66 /* App.swift */; };
+		E53B694E982E468399CFEA42 /* JAVCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC44E7983064DD7A002C8AB /* JAVCode.swift */; };
+		3BE779DA977D4EAEA026A465 /* JableTVBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2241D839E7E344A0831413CE /* JableTVBrowser.swift */; };
+		77B35CF09392401FA4BB98B5 /* MissAVBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC25B5B06354202B5475997 /* MissAVBrowser.swift */; };
+		E4CE4B0B5F904309A75BAB16 /* SiteBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0224459EB3FB4AC49FF07762 /* SiteBrowser.swift */; };
+		32B0B3CEA6E9429898D4035B /* SiteCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F128BD29C834DCAB781D061 /* SiteCatalog.swift */; };
+		0CEF29CAFABC4E4A9612F132 /* SupJavBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A18291F539645D988E31155 /* SupJavBrowser.swift */; };
+		4534997DCDCF4F2786262785 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6973F45035D4C91AE73B780 /* ContentView.swift */; };
+		94AB5DC8516D47979295A4A1 /* ExtractorRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0F28FFC1B04679A2017B23 /* ExtractorRegistry.swift */; };
+		D184FCF7D8C74EB393FDEE17 /* JableTVExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AAF60DA4434FFCA309EB14 /* JableTVExtractor.swift */; };
+		4140C5F51CD0442ABA79DFFA /* MissAVExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E430E82F8E4CBE9C1DBFAD /* MissAVExtractor.swift */; };
+		AF553B9CD8A345438DAB576C /* SiteExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E210705B44D7DAD43E99E /* SiteExtractor.swift */; };
+		787FB88A8B054142A9CCACDC /* SupJavExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8204A0A529487B8E6A44AB /* SupJavExtractor.swift */; };
+		166D57A1386E46979FA51C4A /* ExtractedVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BC2E175CA4BE59E3E587A /* ExtractedVideo.swift */; };
+		79011BEEC1DD443F803F1A33 /* ExtractionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE1ED48C0F6479C91BB28CE /* ExtractionError.swift */; };
+		F280B753A6C94266B6B90E59 /* VideoListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27259C3B8BC4B0BB9EE8DBE /* VideoListing.swift */; };
+		96CE6C5EDEF74AD8B4A30700 /* HLSVariantSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4C711CE25D4B1DB5160C88 /* HLSVariantSelector.swift */; };
+		DC275780297F4F2DAC2244A1 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7282B2DE8FC6474AB9A3CC1E /* HTTPClient.swift */; };
+		0BA7A7E57BBF419EBA73477F /* PackedJSDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E5222557C42DF979E8631 /* PackedJSDecoder.swift */; };
+		5672AB30C2CC46D48E405AC7 /* RegexUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B2FEA38ED477092683BD0 /* RegexUtils.swift */; };
+		F2B1A29CA8654CFABD929033 /* PlaylistBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DA19AAC8F946E2A4BD8864 /* PlaylistBuilder.swift */; };
+		AB22F89325394246B3C8BE5A /* ResolutionPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC87506E0D304F33BDEA966D /* ResolutionPreference.swift */; };
+		DCA5A7ACCF61496F9A90D257 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0679A855525A4478A34667BB /* ShareSheet.swift */; };
+		A96BF883DB414610A3D8A78E /* VLCOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66E2521435649F98F504DC8 /* VLCOpener.swift */; };
+		1DDD9455E4744F33BA488BA0 /* PlaylistJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76ABD00E86B41D697FF8425 /* PlaylistJob.swift */; };
+		DB085AA919354EA7BA32E3E5 /* QueueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54756BE5AAE44887B1589C17 /* QueueStore.swift */; };
+		67463FD278844CD3A107FDD1 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B6AD35315A45E2829A1A06 /* AccountView.swift */; };
+		F4CF90EFEB024CDBBC5FF8CB /* AddByURLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CFECDAE42E4B46ADECD2CE /* AddByURLView.swift */; };
+		97CB3AF517134162BA23BA2B /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF2F69F4AC5438387E5464E /* CategoryListView.swift */; };
+		5A00F9D38C1440CD81B0AB64 /* QueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF2C158971D4A2CBAE64559 /* QueueView.swift */; };
+		10A0E9FF24BC4E2B842C2818 /* SitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1F8D793B834EDCAFF4A17F /* SitesView.swift */; };
+		26BA16748C5D408F81DD6A8A /* VideoGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B7E617A93349E2920A871C /* VideoGridView.swift */; };
+		6FDEC64942784CC893EE608E /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = FFFD635EE2724159BC8D039F /* SwiftSoup */; };
 /* End PBXBuildFile section */
 /* Begin PBXFileReference section */
-		7CA73A1BF775496BADF5CA6D /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
-		EBC3804E5E1445D2806425E3 /* MissAVAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissAVAccount.swift; sourceTree = "<group>"; };
-		360F263C8E7640BB895D26C3 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		AE9361B486DC42ABB98BD476 /* JableTVBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JableTVBrowser.swift; sourceTree = "<group>"; };
-		859D519A115D4BAFAA93FBA7 /* MissAVBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissAVBrowser.swift; sourceTree = "<group>"; };
-		87E4FB0B28E94DF7A0108F3A /* SiteBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteBrowser.swift; sourceTree = "<group>"; };
-		C6B83BA1AFAC431ABD355BF7 /* SiteCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteCatalog.swift; sourceTree = "<group>"; };
-		19D3B13A76E54C67903A2572 /* SupJavBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupJavBrowser.swift; sourceTree = "<group>"; };
-		DC58021AADDF4FF9AE85079A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		7011FB409B7D4381A783CAFF /* ExtractorRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractorRegistry.swift; sourceTree = "<group>"; };
-		CBF078DE226143DBA959D419 /* JableTVExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JableTVExtractor.swift; sourceTree = "<group>"; };
-		99FED9351DFF4904BAB99A15 /* MissAVExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissAVExtractor.swift; sourceTree = "<group>"; };
-		8D9A420FC7614FA6AE5CD749 /* SiteExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteExtractor.swift; sourceTree = "<group>"; };
-		953B006178694B8996494711 /* SupJavExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupJavExtractor.swift; sourceTree = "<group>"; };
-		6E0091A8DC494FE59D76827A /* ExtractedVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractedVideo.swift; sourceTree = "<group>"; };
-		B384DF4B49474FE78C2EFD74 /* ExtractionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractionError.swift; sourceTree = "<group>"; };
-		600B945E632949FC90B81C17 /* VideoListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListing.swift; sourceTree = "<group>"; };
-		506A93E6072F47A2B6A72A60 /* HLSVariantSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLSVariantSelector.swift; sourceTree = "<group>"; };
-		47F49A9535EF4622BB27453E /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
-		1C274DBDA1814AFFB9899058 /* PackedJSDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackedJSDecoder.swift; sourceTree = "<group>"; };
-		5573868431E549F28612CFBE /* RegexUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexUtils.swift; sourceTree = "<group>"; };
-		2BE1BF82E3804EB494B49A8F /* PlaylistBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistBuilder.swift; sourceTree = "<group>"; };
-		B4DE367C8EDE46FFBC0F5126 /* ResolutionPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolutionPreference.swift; sourceTree = "<group>"; };
-		6206B96CE9A240698D413007 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
-		B3679376846F486BADCD1343 /* VLCOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLCOpener.swift; sourceTree = "<group>"; };
-		16A8E3A2B8A9405EA496EE8E /* PlaylistJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistJob.swift; sourceTree = "<group>"; };
-		7C6B370942534DC086C512BE /* QueueStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueStore.swift; sourceTree = "<group>"; };
-		7C439187CC384D4A89A3D3DE /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
-		253E0857CC43419E9312686A /* AddByURLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddByURLView.swift; sourceTree = "<group>"; };
-		4F287CF8695B4ED49957D903 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
-		E91C6A0A1CD44796962E7E23 /* QueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueView.swift; sourceTree = "<group>"; };
-		4B2BED068F2842D194C27C4A /* SitesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitesView.swift; sourceTree = "<group>"; };
-		5CE1B6D7D413481BAF85339B /* VideoGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGridView.swift; sourceTree = "<group>"; };
-		E035B0C7BBB54B5E847D7C32 /* Info-Additions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Additions.plist"; sourceTree = "<group>"; };
-		120BEEFFC9B84F89800BF97F /* UAVPlaylist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UAVPlaylist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F687B9E5C2FA46C5BCF38138 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
+		C31E33D56ACF4BDBAB35A1EE /* MissAVAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissAVAccount.swift; sourceTree = "<group>"; };
+		543B5D495915495CB95D2A66 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		EEC44E7983064DD7A002C8AB /* JAVCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAVCode.swift; sourceTree = "<group>"; };
+		2241D839E7E344A0831413CE /* JableTVBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JableTVBrowser.swift; sourceTree = "<group>"; };
+		7CC25B5B06354202B5475997 /* MissAVBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissAVBrowser.swift; sourceTree = "<group>"; };
+		0224459EB3FB4AC49FF07762 /* SiteBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteBrowser.swift; sourceTree = "<group>"; };
+		9F128BD29C834DCAB781D061 /* SiteCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteCatalog.swift; sourceTree = "<group>"; };
+		9A18291F539645D988E31155 /* SupJavBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupJavBrowser.swift; sourceTree = "<group>"; };
+		B6973F45035D4C91AE73B780 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8A0F28FFC1B04679A2017B23 /* ExtractorRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractorRegistry.swift; sourceTree = "<group>"; };
+		62AAF60DA4434FFCA309EB14 /* JableTVExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JableTVExtractor.swift; sourceTree = "<group>"; };
+		49E430E82F8E4CBE9C1DBFAD /* MissAVExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissAVExtractor.swift; sourceTree = "<group>"; };
+		044E210705B44D7DAD43E99E /* SiteExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteExtractor.swift; sourceTree = "<group>"; };
+		8B8204A0A529487B8E6A44AB /* SupJavExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupJavExtractor.swift; sourceTree = "<group>"; };
+		DC7BC2E175CA4BE59E3E587A /* ExtractedVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractedVideo.swift; sourceTree = "<group>"; };
+		2EE1ED48C0F6479C91BB28CE /* ExtractionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractionError.swift; sourceTree = "<group>"; };
+		A27259C3B8BC4B0BB9EE8DBE /* VideoListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListing.swift; sourceTree = "<group>"; };
+		2B4C711CE25D4B1DB5160C88 /* HLSVariantSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLSVariantSelector.swift; sourceTree = "<group>"; };
+		7282B2DE8FC6474AB9A3CC1E /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		132E5222557C42DF979E8631 /* PackedJSDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackedJSDecoder.swift; sourceTree = "<group>"; };
+		2C5B2FEA38ED477092683BD0 /* RegexUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexUtils.swift; sourceTree = "<group>"; };
+		56DA19AAC8F946E2A4BD8864 /* PlaylistBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistBuilder.swift; sourceTree = "<group>"; };
+		AC87506E0D304F33BDEA966D /* ResolutionPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolutionPreference.swift; sourceTree = "<group>"; };
+		0679A855525A4478A34667BB /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
+		B66E2521435649F98F504DC8 /* VLCOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLCOpener.swift; sourceTree = "<group>"; };
+		E76ABD00E86B41D697FF8425 /* PlaylistJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistJob.swift; sourceTree = "<group>"; };
+		54756BE5AAE44887B1589C17 /* QueueStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueStore.swift; sourceTree = "<group>"; };
+		31B6AD35315A45E2829A1A06 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		98CFECDAE42E4B46ADECD2CE /* AddByURLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddByURLView.swift; sourceTree = "<group>"; };
+		3BF2F69F4AC5438387E5464E /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
+		EEF2C158971D4A2CBAE64559 /* QueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueView.swift; sourceTree = "<group>"; };
+		AC1F8D793B834EDCAFF4A17F /* SitesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitesView.swift; sourceTree = "<group>"; };
+		47B7E617A93349E2920A871C /* VideoGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGridView.swift; sourceTree = "<group>"; };
+		121FEFB1FC63415F93E0EE75 /* Info-Additions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Additions.plist"; sourceTree = "<group>"; };
+		2409F5DBDEFB4F5EAA37BDD2 /* UAVPlaylist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UAVPlaylist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 /* Begin PBXFrameworksBuildPhase section */
-		8775D3F5779146409D5F69D9 /* Frameworks */ = {
+		417689225D4D49008530B617 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1864FC9507C74040B1C7B430 /* SwiftSoup in Frameworks */,
+				6FDEC64942784CC893EE608E /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 /* Begin PBXGroup section */
-		E85B4A46EBB54629B6B4F049 /* Account */ = {
+		D0B8B19E49EE47A99063DD42 /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				7CA73A1BF775496BADF5CA6D /* KeychainStore.swift */,
-				EBC3804E5E1445D2806425E3 /* MissAVAccount.swift */,
+				F687B9E5C2FA46C5BCF38138 /* KeychainStore.swift */,
+				C31E33D56ACF4BDBAB35A1EE /* MissAVAccount.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
 		};
-		B484E46BB274462DB68BA045 /* Browsers */ = {
+		AC47EF2BF0BF4B2E85069347 /* Browsers */ = {
 			isa = PBXGroup;
 			children = (
-				AE9361B486DC42ABB98BD476 /* JableTVBrowser.swift */,
-				859D519A115D4BAFAA93FBA7 /* MissAVBrowser.swift */,
-				87E4FB0B28E94DF7A0108F3A /* SiteBrowser.swift */,
-				C6B83BA1AFAC431ABD355BF7 /* SiteCatalog.swift */,
-				19D3B13A76E54C67903A2572 /* SupJavBrowser.swift */,
+				EEC44E7983064DD7A002C8AB /* JAVCode.swift */,
+				2241D839E7E344A0831413CE /* JableTVBrowser.swift */,
+				7CC25B5B06354202B5475997 /* MissAVBrowser.swift */,
+				0224459EB3FB4AC49FF07762 /* SiteBrowser.swift */,
+				9F128BD29C834DCAB781D061 /* SiteCatalog.swift */,
+				9A18291F539645D988E31155 /* SupJavBrowser.swift */,
 			);
 			path = Browsers;
 			sourceTree = "<group>";
 		};
-		D11C5586A5C0413C8E8A1926 /* Extractors */ = {
+		710055328FAB436B9305D279 /* Extractors */ = {
 			isa = PBXGroup;
 			children = (
-				7011FB409B7D4381A783CAFF /* ExtractorRegistry.swift */,
-				CBF078DE226143DBA959D419 /* JableTVExtractor.swift */,
-				99FED9351DFF4904BAB99A15 /* MissAVExtractor.swift */,
-				8D9A420FC7614FA6AE5CD749 /* SiteExtractor.swift */,
-				953B006178694B8996494711 /* SupJavExtractor.swift */,
+				8A0F28FFC1B04679A2017B23 /* ExtractorRegistry.swift */,
+				62AAF60DA4434FFCA309EB14 /* JableTVExtractor.swift */,
+				49E430E82F8E4CBE9C1DBFAD /* MissAVExtractor.swift */,
+				044E210705B44D7DAD43E99E /* SiteExtractor.swift */,
+				8B8204A0A529487B8E6A44AB /* SupJavExtractor.swift */,
 			);
 			path = Extractors;
 			sourceTree = "<group>";
 		};
-		6B5A152C3F4D487485040779 /* Models */ = {
+		97C03EBA59C14F4782279C71 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6E0091A8DC494FE59D76827A /* ExtractedVideo.swift */,
-				B384DF4B49474FE78C2EFD74 /* ExtractionError.swift */,
-				600B945E632949FC90B81C17 /* VideoListing.swift */,
+				DC7BC2E175CA4BE59E3E587A /* ExtractedVideo.swift */,
+				2EE1ED48C0F6479C91BB28CE /* ExtractionError.swift */,
+				A27259C3B8BC4B0BB9EE8DBE /* VideoListing.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		A08097C4665D4F52870BF5E6 /* Networking */ = {
+		D661E02BC5044710A4BFD2B8 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				506A93E6072F47A2B6A72A60 /* HLSVariantSelector.swift */,
-				47F49A9535EF4622BB27453E /* HTTPClient.swift */,
-				1C274DBDA1814AFFB9899058 /* PackedJSDecoder.swift */,
-				5573868431E549F28612CFBE /* RegexUtils.swift */,
+				2B4C711CE25D4B1DB5160C88 /* HLSVariantSelector.swift */,
+				7282B2DE8FC6474AB9A3CC1E /* HTTPClient.swift */,
+				132E5222557C42DF979E8631 /* PackedJSDecoder.swift */,
+				2C5B2FEA38ED477092683BD0 /* RegexUtils.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		7105194D70244ABB94A5CDF4 /* Playlist */ = {
+		E23BBCB304014304B88BFC48 /* Playlist */ = {
 			isa = PBXGroup;
 			children = (
-				2BE1BF82E3804EB494B49A8F /* PlaylistBuilder.swift */,
-				B4DE367C8EDE46FFBC0F5126 /* ResolutionPreference.swift */,
-				6206B96CE9A240698D413007 /* ShareSheet.swift */,
-				B3679376846F486BADCD1343 /* VLCOpener.swift */,
+				56DA19AAC8F946E2A4BD8864 /* PlaylistBuilder.swift */,
+				AC87506E0D304F33BDEA966D /* ResolutionPreference.swift */,
+				0679A855525A4478A34667BB /* ShareSheet.swift */,
+				B66E2521435649F98F504DC8 /* VLCOpener.swift */,
 			);
 			path = Playlist;
 			sourceTree = "<group>";
 		};
-		382C9E82BC8344F7BFBC3693 /* Queue */ = {
+		975AE86C103E4831BADB23F9 /* Queue */ = {
 			isa = PBXGroup;
 			children = (
-				16A8E3A2B8A9405EA496EE8E /* PlaylistJob.swift */,
-				7C6B370942534DC086C512BE /* QueueStore.swift */,
+				E76ABD00E86B41D697FF8425 /* PlaylistJob.swift */,
+				54756BE5AAE44887B1589C17 /* QueueStore.swift */,
 			);
 			path = Queue;
 			sourceTree = "<group>";
 		};
-		9A08EB96981C410C8FD08E55 /* Views */ = {
+		9B90546F0E6E44BD93D24E85 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7C439187CC384D4A89A3D3DE /* AccountView.swift */,
-				253E0857CC43419E9312686A /* AddByURLView.swift */,
-				4F287CF8695B4ED49957D903 /* CategoryListView.swift */,
-				E91C6A0A1CD44796962E7E23 /* QueueView.swift */,
-				4B2BED068F2842D194C27C4A /* SitesView.swift */,
-				5CE1B6D7D413481BAF85339B /* VideoGridView.swift */,
+				31B6AD35315A45E2829A1A06 /* AccountView.swift */,
+				98CFECDAE42E4B46ADECD2CE /* AddByURLView.swift */,
+				3BF2F69F4AC5438387E5464E /* CategoryListView.swift */,
+				EEF2C158971D4A2CBAE64559 /* QueueView.swift */,
+				AC1F8D793B834EDCAFF4A17F /* SitesView.swift */,
+				47B7E617A93349E2920A871C /* VideoGridView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		DAFCF31FA6DD45BC83E69F5B /* UAVPlaylistApp */ = {
+		C9EF89498C624FE29965A63A /* UAVPlaylistApp */ = {
 			isa = PBXGroup;
 			children = (
-				E85B4A46EBB54629B6B4F049 /* Account */,
-				B484E46BB274462DB68BA045 /* Browsers */,
-				D11C5586A5C0413C8E8A1926 /* Extractors */,
-				6B5A152C3F4D487485040779 /* Models */,
-				A08097C4665D4F52870BF5E6 /* Networking */,
-				7105194D70244ABB94A5CDF4 /* Playlist */,
-				382C9E82BC8344F7BFBC3693 /* Queue */,
-				9A08EB96981C410C8FD08E55 /* Views */,
-				360F263C8E7640BB895D26C3 /* App.swift */,
-				DC58021AADDF4FF9AE85079A /* ContentView.swift */,
+				D0B8B19E49EE47A99063DD42 /* Account */,
+				AC47EF2BF0BF4B2E85069347 /* Browsers */,
+				710055328FAB436B9305D279 /* Extractors */,
+				97C03EBA59C14F4782279C71 /* Models */,
+				D661E02BC5044710A4BFD2B8 /* Networking */,
+				E23BBCB304014304B88BFC48 /* Playlist */,
+				975AE86C103E4831BADB23F9 /* Queue */,
+				9B90546F0E6E44BD93D24E85 /* Views */,
+				543B5D495915495CB95D2A66 /* App.swift */,
+				B6973F45035D4C91AE73B780 /* ContentView.swift */,
 			);
 			path = UAVPlaylistApp;
 			sourceTree = "<group>";
 		};
-		EC4BA7D44F78453EB181432D /* Support */ = {
+		C2E99304C58E4625A47F333B /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				E035B0C7BBB54B5E847D7C32 /* Info-Additions.plist */,
+				121FEFB1FC63415F93E0EE75 /* Info-Additions.plist */,
 			);
 			path = Support;
 			sourceTree = "<group>";
 		};
-		F55D26A0C809424EA6CD1EB7 /* Products */ = {
+		CBD923912A4D43D19F6F7A98 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				120BEEFFC9B84F89800BF97F /* UAVPlaylist.app */,
+				2409F5DBDEFB4F5EAA37BDD2 /* UAVPlaylist.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AFEEE96CABF64BB39241AAE2 /* Sources */ = {
+		DD0270EC3C78439E8B8EF8C8 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				DAFCF31FA6DD45BC83E69F5B /* UAVPlaylistApp */,
+				C9EF89498C624FE29965A63A /* UAVPlaylistApp */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		8B6E3A1272E9441585B263C4 = {
+		B1C8F8E6AE1048539DFFE1BA = {
 			isa = PBXGroup;
 			children = (
-				AFEEE96CABF64BB39241AAE2 /* Sources */,
-				EC4BA7D44F78453EB181432D /* Support */,
-				F55D26A0C809424EA6CD1EB7 /* Products */,
+				DD0270EC3C78439E8B8EF8C8 /* Sources */,
+				C2E99304C58E4625A47F333B /* Support */,
+				CBD923912A4D43D19F6F7A98 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 /* Begin PBXNativeTarget section */
-		0F1E77DB217A4CB987811318 /* UAVPlaylist */ = {
+		D1DD55595BF1430DA2F2600F /* UAVPlaylist */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F7D0B68329DF48E9A71F7D47 /* Build configuration list for PBXNativeTarget "UAVPlaylist" */;
+			buildConfigurationList = 58F13A1414C64300A0EDDC99 /* Build configuration list for PBXNativeTarget "UAVPlaylist" */;
 			buildPhases = (
-				222BB31FB7D34F5ABA00C4CC /* Sources */,
-				8775D3F5779146409D5F69D9 /* Frameworks */,
-				63144E4E868D4E27AF19BBFE /* Resources */,
+				D01E20BBBD3B4E9E97FC9FFB /* Sources */,
+				417689225D4D49008530B617 /* Frameworks */,
+				A32486C3315D4CD6BDF373C3 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -242,27 +245,27 @@
 			);
 			name = UAVPlaylist;
 			packageProductDependencies = (
-				F0CB0F99EC2C469DBD9035F9 /* SwiftSoup */,
+				FFFD635EE2724159BC8D039F /* SwiftSoup */,
 			);
 			productName = UAVPlaylist;
-			productReference = 120BEEFFC9B84F89800BF97F /* UAVPlaylist.app */;
+			productReference = 2409F5DBDEFB4F5EAA37BDD2 /* UAVPlaylist.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 /* Begin PBXProject section */
-		4E81364C94C64FF6BBAB07EF /* Project object */ = {
+		1128817B22B647EE811D7267 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
-					0F1E77DB217A4CB987811318 = {
+					D1DD55595BF1430DA2F2600F = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
 			};
-			buildConfigurationList = BB102413B97141BAA17E9B32 /* Build configuration list for PBXProject "UAVPlaylist" */;
+			buildConfigurationList = 6C2DE0B5EA0F42EC923CA88C /* Build configuration list for PBXProject "UAVPlaylist" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -270,20 +273,20 @@
 				en,
 				Base,
 			);
-			mainGroup = 8B6E3A1272E9441585B263C4;
+			mainGroup = B1C8F8E6AE1048539DFFE1BA;
 			packageReferences = (
-				050C3B97224B45B0A26B5BE8 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				D9F6285534DB4A0CB9D73ACC /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
-			productRefGroup = F55D26A0C809424EA6CD1EB7 /* Products */;
+			productRefGroup = CBD923912A4D43D19F6F7A98 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0F1E77DB217A4CB987811318 /* UAVPlaylist */,
+				D1DD55595BF1430DA2F2600F /* UAVPlaylist */,
 			);
 		};
 /* End PBXProject section */
 /* Begin PBXResourcesBuildPhase section */
-		63144E4E868D4E27AF19BBFE /* Resources */ = {
+		A32486C3315D4CD6BDF373C3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -292,49 +295,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 /* Begin PBXSourcesBuildPhase section */
-		222BB31FB7D34F5ABA00C4CC /* Sources */ = {
+		D01E20BBBD3B4E9E97FC9FFB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C4F0E917F0A407E8485310C /* KeychainStore.swift in Sources */,
-				804F4DE6DB4E495EAB1AD4E6 /* MissAVAccount.swift in Sources */,
-				E9E0CAD8C26744BDBFB40E42 /* App.swift in Sources */,
-				C7A08E406C294996905F677F /* JableTVBrowser.swift in Sources */,
-				E89BC6F292EA41EA89FB0362 /* MissAVBrowser.swift in Sources */,
-				A1CA83EDC27E46D2B06B430B /* SiteBrowser.swift in Sources */,
-				36C9C5CDED7B4FBD8B9B8B30 /* SiteCatalog.swift in Sources */,
-				8A5F0D62FA224ED58EC83136 /* SupJavBrowser.swift in Sources */,
-				BEE2DD9AF81D4784830B770D /* ContentView.swift in Sources */,
-				F286FDABD0244031A43AEA46 /* ExtractorRegistry.swift in Sources */,
-				1058FDA4425C455FA5A0F342 /* JableTVExtractor.swift in Sources */,
-				13402930B6DB4AD989441069 /* MissAVExtractor.swift in Sources */,
-				DB8B3205054B481B94FF9A03 /* SiteExtractor.swift in Sources */,
-				7B03FD079B9240438678E9C9 /* SupJavExtractor.swift in Sources */,
-				18FB857E232A4063917B6F32 /* ExtractedVideo.swift in Sources */,
-				67AE9D46D57248DB9FA15AA6 /* ExtractionError.swift in Sources */,
-				5E5F4F88820D4FF880993930 /* VideoListing.swift in Sources */,
-				2BCC6BC506594C09A8E92A9F /* HLSVariantSelector.swift in Sources */,
-				47A5ABD4D61B4C269D9A66D1 /* HTTPClient.swift in Sources */,
-				9586335ADD42434198A607DA /* PackedJSDecoder.swift in Sources */,
-				318977799F95416DA79453E9 /* RegexUtils.swift in Sources */,
-				CBE93A8FD1E048A091B775B0 /* PlaylistBuilder.swift in Sources */,
-				94BA2DB89A844E899C4E34A8 /* ResolutionPreference.swift in Sources */,
-				29465F49FC1947CDA45B0891 /* ShareSheet.swift in Sources */,
-				EB087E2D1878412C93A6FA39 /* VLCOpener.swift in Sources */,
-				0CC38638CF8944469006B587 /* PlaylistJob.swift in Sources */,
-				3104C5242E604991A9446F6B /* QueueStore.swift in Sources */,
-				FEAA0A30B6424926BDB003F9 /* AccountView.swift in Sources */,
-				ADE543747E4C4FBEB31B9157 /* AddByURLView.swift in Sources */,
-				943DC72BBE1A4F7E988E570D /* CategoryListView.swift in Sources */,
-				EF03546771EC4B32A71AEBF1 /* QueueView.swift in Sources */,
-				1A59D97F660B410FA6CF8ED6 /* SitesView.swift in Sources */,
-				9B65A771E9AE4927BCEE9362 /* VideoGridView.swift in Sources */,
+				8BC73BA3CCB44B97ADFB44A9 /* KeychainStore.swift in Sources */,
+				F8E041F7262647C28268531B /* MissAVAccount.swift in Sources */,
+				50F2B5D939CA45CC88CFCC9E /* App.swift in Sources */,
+				E53B694E982E468399CFEA42 /* JAVCode.swift in Sources */,
+				3BE779DA977D4EAEA026A465 /* JableTVBrowser.swift in Sources */,
+				77B35CF09392401FA4BB98B5 /* MissAVBrowser.swift in Sources */,
+				E4CE4B0B5F904309A75BAB16 /* SiteBrowser.swift in Sources */,
+				32B0B3CEA6E9429898D4035B /* SiteCatalog.swift in Sources */,
+				0CEF29CAFABC4E4A9612F132 /* SupJavBrowser.swift in Sources */,
+				4534997DCDCF4F2786262785 /* ContentView.swift in Sources */,
+				94AB5DC8516D47979295A4A1 /* ExtractorRegistry.swift in Sources */,
+				D184FCF7D8C74EB393FDEE17 /* JableTVExtractor.swift in Sources */,
+				4140C5F51CD0442ABA79DFFA /* MissAVExtractor.swift in Sources */,
+				AF553B9CD8A345438DAB576C /* SiteExtractor.swift in Sources */,
+				787FB88A8B054142A9CCACDC /* SupJavExtractor.swift in Sources */,
+				166D57A1386E46979FA51C4A /* ExtractedVideo.swift in Sources */,
+				79011BEEC1DD443F803F1A33 /* ExtractionError.swift in Sources */,
+				F280B753A6C94266B6B90E59 /* VideoListing.swift in Sources */,
+				96CE6C5EDEF74AD8B4A30700 /* HLSVariantSelector.swift in Sources */,
+				DC275780297F4F2DAC2244A1 /* HTTPClient.swift in Sources */,
+				0BA7A7E57BBF419EBA73477F /* PackedJSDecoder.swift in Sources */,
+				5672AB30C2CC46D48E405AC7 /* RegexUtils.swift in Sources */,
+				F2B1A29CA8654CFABD929033 /* PlaylistBuilder.swift in Sources */,
+				AB22F89325394246B3C8BE5A /* ResolutionPreference.swift in Sources */,
+				DCA5A7ACCF61496F9A90D257 /* ShareSheet.swift in Sources */,
+				A96BF883DB414610A3D8A78E /* VLCOpener.swift in Sources */,
+				1DDD9455E4744F33BA488BA0 /* PlaylistJob.swift in Sources */,
+				DB085AA919354EA7BA32E3E5 /* QueueStore.swift in Sources */,
+				67463FD278844CD3A107FDD1 /* AccountView.swift in Sources */,
+				F4CF90EFEB024CDBBC5FF8CB /* AddByURLView.swift in Sources */,
+				97CB3AF517134162BA23BA2B /* CategoryListView.swift in Sources */,
+				5A00F9D38C1440CD81B0AB64 /* QueueView.swift in Sources */,
+				10A0E9FF24BC4E2B842C2818 /* SitesView.swift in Sources */,
+				26BA16748C5D408F81DD6A8A /* VideoGridView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 /* Begin XCBuildConfiguration section */
-		34A4DC9EDAF445838DE42208 /* Debug */ = {
+		96593A9961894E6F9254DB7A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = NO;
@@ -397,7 +401,7 @@
 			};
 			name = Debug;
 		};
-		04CAAB3870454A1D9E092810 /* Release */ = {
+		532315E3D8D341AAA438D30F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = NO;
@@ -453,7 +457,7 @@
 			};
 			name = Release;
 		};
-		9EAB2DD6FA1C4B34B645572E /* Debug */ = {
+		70F02B166F5A4731B86000AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -476,7 +480,7 @@
 			};
 			name = Debug;
 		};
-		804DB7F96D6A4F3F8A38F2D1 /* Release */ = {
+		89E9F1500B5F4CF48D4D0649 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -501,27 +505,27 @@
 		};
 /* End XCBuildConfiguration section */
 /* Begin XCConfigurationList section */
-		BB102413B97141BAA17E9B32 /* Build configuration list for PBXProject "UAVPlaylist" */ = {
+		6C2DE0B5EA0F42EC923CA88C /* Build configuration list for PBXProject "UAVPlaylist" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				34A4DC9EDAF445838DE42208 /* Debug */,
-				04CAAB3870454A1D9E092810 /* Release */,
+				96593A9961894E6F9254DB7A /* Debug */,
+				532315E3D8D341AAA438D30F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F7D0B68329DF48E9A71F7D47 /* Build configuration list for PBXNativeTarget "UAVPlaylist" */ = {
+		58F13A1414C64300A0EDDC99 /* Build configuration list for PBXNativeTarget "UAVPlaylist" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9EAB2DD6FA1C4B34B645572E /* Debug */,
-				804DB7F96D6A4F3F8A38F2D1 /* Release */,
+				70F02B166F5A4731B86000AF /* Debug */,
+				89E9F1500B5F4CF48D4D0649 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 /* Begin XCRemoteSwiftPackageReference section */
-		050C3B97224B45B0A26B5BE8 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+		D9F6285534DB4A0CB9D73ACC /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
 			requirement = {
@@ -531,12 +535,12 @@
 		};
 /* End XCRemoteSwiftPackageReference section */
 /* Begin XCSwiftPackageProductDependency section */
-		F0CB0F99EC2C469DBD9035F9 /* SwiftSoup */ = {
+		FFFD635EE2724159BC8D039F /* SwiftSoup */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 050C3B97224B45B0A26B5BE8 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			package = D9F6285534DB4A0CB9D73ACC /* XCRemoteSwiftPackageReference "SwiftSoup" */;
 			productName = SwiftSoup;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 4E81364C94C64FF6BBAB07EF /* Project object */;
+	rootObject = 1128817B22B647EE811D7267 /* Project object */;
 }

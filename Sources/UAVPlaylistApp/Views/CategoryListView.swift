@@ -26,14 +26,22 @@ struct CategoryListView: View {
         }
     }
 
-    /// Categories that came from a signed-in account (MissAV saved playlists).
-    private var accountPlaylists: [BrowseCategory] {
-        categories.filter { $0.group == MissAVBrowser.accountPlaylistGroup }
+    /// The site's own listing sections (no group).
+    private var plainCategories: [BrowseCategory] {
+        categories.filter { $0.group == nil }
     }
 
-    /// The site's own categories, without the account-sourced ones.
-    private var plainCategories: [BrowseCategory] {
-        categories.filter { $0.group != MissAVBrowser.accountPlaylistGroup }
+    /// Grouped categories — MissAV saved playlists, and MissAV playlists mirrored
+    /// onto JableTV — each rendered as its own section, in first-seen order.
+    private var groupedCategories: [(String, [BrowseCategory])] {
+        var order: [String] = []
+        var buckets: [String: [BrowseCategory]] = [:]
+        for category in categories {
+            guard let group = category.group else { continue }
+            if buckets[group] == nil { order.append(group) }
+            buckets[group, default: []].append(category)
+        }
+        return order.map { ($0, buckets[$0] ?? []) }
     }
 
     /// Selection in the order the sections present it, so the merged listing is stable.
@@ -71,14 +79,14 @@ struct CategoryListView: View {
                 }
             }
 
-            if !accountPlaylists.isEmpty {
-                Section(MissAVBrowser.accountPlaylistGroup) {
-                    ForEach(accountPlaylists) { playlist in
+            ForEach(groupedCategories, id: \.0) { groupName, items in
+                Section(groupName) {
+                    ForEach(items) { item in
                         CheckboxRow(
-                            title: playlist.name,
-                            isOn: selected.contains(playlist)
+                            title: item.name,
+                            isOn: selected.contains(item)
                         ) {
-                            toggle(playlist)
+                            toggle(item)
                         }
                     }
                 }
