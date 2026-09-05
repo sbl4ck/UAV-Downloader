@@ -1,36 +1,28 @@
-# Contributing to UAV Downloader
+# Contributing to UAV Playlist
 
-Thank you for improving the project. Bug reports that include a reproducible
-URL and precise application version are especially valuable because supported
-sites and CDNs can change independently of the application.
+Thank you for improving the project. Bug reports that include a reproducible video
+page URL and the exact Xcode/iOS versions used are especially valuable, since
+supported sites change their page markup independently of the app.
 
 ## Development setup
 
-Use Python 3.10 or newer; release builds use Python 3.12.10.
+Requires Xcode 16 or later and an Apple ID (free personal team is enough for
+running on your own device).
 
 ```bash
-git clone https://github.com/Alos21750/UAV-Downloader.git
+git clone https://github.com/sbl4ck/UAV-Downloader.git
 cd UAV-Downloader
-python -m venv .venv
-.venv\Scripts\python -m pip install -r requirements.txt
-.venv\Scripts\python -m pip install -e .
-.venv\Scripts\python -m pytest tests -q
+open UAVPlaylist.xcodeproj
 ```
 
-On macOS or Linux, activate the virtual environment with
-`source .venv/bin/activate` and install Tk through the operating system when it
-is not bundled with Python.
+Xcode resolves the SwiftSoup package dependency automatically on first open.
 
 ## Pull requests
 
-- Keep site-specific parsing in `src/uav_downloader/sites`.
-- Put shared configuration, network, update, and migration behavior in `core`.
-- Add regression tests for crawler changes and user-visible bug fixes.
-- Preserve public CLI options, state migration, and v2 release aliases unless
-  a documented major-version decision explicitly replaces them.
-- Never commit API keys, cookies, proxy credentials, downloaded videos, model
-  packs, or personally identifying logs.
-- Run the full test suite before requesting review.
-
-Windows executable releases are created only by the pinned GitHub Actions
-workflow. Do not attach locally built executables to project releases.
+- Keep one file per site extractor under `Sources/UAVPlaylistApp/Extractors/`,
+  conforming to `SiteExtractor`.
+- Keep shared HTTP/regex/HLS-parsing helpers in `Networking/`.
+- All UI text, error messages, and code comments must be in English.
+- Never commit API keys, cookies, proxy credentials, or downloaded video content.
+- New extractors should never download or store video/segment data — the app's
+  entire point is resolving a stream URL and handing playback off to VLC.

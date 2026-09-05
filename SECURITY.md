@@ -2,26 +2,23 @@
 
 ## Reporting a vulnerability
 
-Do not open a public Issue for a vulnerability that could expose user data,
-credentials, or arbitrary code execution. Use GitHub's private vulnerability
-reporting feature for this repository. Include the affected version, platform,
-reproduction steps, impact, and any proposed mitigation.
+Do not open a public Issue for a vulnerability that could expose user data or
+credentials. Use GitHub's private vulnerability reporting feature for this
+repository. Include the affected version, iOS version, reproduction steps, impact,
+and any proposed mitigation.
 
-For ordinary parser failures, site changes, or download errors with no security
+For ordinary parser failures, site changes, or extraction errors with no security
 impact, use the public Issue tracker instead.
 
 ## Secrets and local data
 
-The project does not ship an API key. User-supplied LLM API keys are encrypted
-with Windows DPAPI for the current account. Reports and logs must not include
-API keys, cookies, proxy credentials, tokens, personal paths, or downloaded
-content.
+The app does not require or store any API key. It does not send analytics or
+telemetry anywhere. Reports and logs must not include cookies, proxy credentials,
+tokens, personal paths, or downloaded content.
 
-## Release verification
+## Network behavior
 
-Official Windows assets are published through GitHub Releases with
-`UAV_SHA256SUMS.txt` and GitHub artifact attestations. See
-[`WINDOWS_SECURITY.md`](./WINDOWS_SECURITY.md) before running a downloaded
-binary. A SmartScreen reputation warning is not the same event as a Defender
-Antivirus detection; never disable protection or add a broad exclusion merely
-to run the application.
+The app makes HTTP requests only to the video-page domains you enter and, for the
+SupJav extractor, the SupremeJAV embed hosts those pages redirect to. It never
+downloads or stores video/segment data itself — resolved stream URLs are handed to
+VLC, which performs the actual network fetch for playback.

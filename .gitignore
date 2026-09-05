@@ -1,23 +1,17 @@
-*.pyc
-*.mp4
-*.DS_store
-.idea/
-build/
-dist/
-release/
-download/
-MakeEXE.bat
-desktop.ini
-jableTV.csv
-JableTV.csv
-main.spec
-__pycache__/
-.pytest_cache/
-*.egg-info/
-.venv/
-.Jable_smalltool/
-.alos-watch/
-.uav-watcher/
+# Xcode / SwiftPM user- and machine-specific state — safe to ignore, regenerated locally.
+xcuserdata/
+*.xcuserstate
+DerivedData/
+.build/
+.swiftpm/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Package.resolved is intentionally NOT ignored here — for an app (as opposed to a
+# library), committing it pins the exact SwiftSoup version everyone builds against.
+
+.DS_Store
 
 # local maintenance guide (machine-specific paths — auto-loads locally, don't publish)
 CLAUDE.md
@@ -25,4 +19,3 @@ CLAUDE.md
 .claude/
 .wrangler/
 *.log
-crash_log.txt
