@@ -42,7 +42,7 @@ actively behind a Cloudflare challenge will report "blocked".
 
 Install **VLC for iOS** from the App Store first (used for playback; not needed to build).
 
-The app has three tabs:
+The app has four tabs:
 
 **Browse** — pick a site, then tick **checkboxes** next to any number of categories or
 filter tags (JableTV also exposes its full sidebar tag list: Clothing, Body, Acts, Kinks,
@@ -60,6 +60,13 @@ form of the slug), so nothing non-English reaches the menus.
 
 **Add URL** — paste a single video page URL to queue it directly, for when you already
 have a link.
+
+**Account** — sign in to a MissAV account and its **saved playlists appear as their own
+checkbox section** ("My Playlists") under MissAV in Browse, alongside the built-in
+categories. Tick one or several, browse them, and queue videos exactly as you would
+from any other category. Credentials go only to `missav.ai`; with "Remember me" on they
+are stored in the device Keychain (device-only, requires unlock), and signing out
+deletes them and clears the session cookies.
 
 **Playlist** — your queue, accumulated across sites and persisted between launches.
 Name it, then tap **Build VLC playlist**. The app opens each queued video's page just
@@ -95,11 +102,14 @@ Sources/UAVPlaylistApp/
     RegexUtils.swift            regex-search/findall-style helpers
     PackedJSDecoder.swift       Dean Edwards p,a,c,k,e,d unpacker
     HLSVariantSelector.swift    picks one HLS variant by resolution preference
+  Account/
+    KeychainStore.swift         Keychain-backed credential storage
+    MissAVAccount.swift         MissAV login + saved-playlist fetching
   Browsers/                     listing/browse side
     SiteBrowser.swift           protocol + registry
     SiteCatalog.swift           English category/tag vocabulary + label fallback
     JableTVBrowser.swift        live categories, sidebar tags, ?from=N paging
-    MissAVBrowser.swift         fixed categories, ?page=N paging
+    MissAVBrowser.swift         categories + account playlists, ?page=N paging
     SupJavBrowser.swift         fixed categories, /page/N paging
   Extractors/                   stream-resolution side
     SiteExtractor.swift         protocol every site conforms to
@@ -121,6 +131,7 @@ Sources/UAVPlaylistApp/
     VideoGridView.swift         merged paged card grid, tap-to-queue
     QueueView.swift             queue, build progress, share to VLC
     AddByURLView.swift          queue a single URL by hand
+    AccountView.swift           MissAV sign-in and playlist list
 ```
 
 ## Legal note

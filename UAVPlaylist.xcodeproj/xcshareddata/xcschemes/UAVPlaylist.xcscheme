@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
       <BuildableReference
          BuildableIdentifier = "primary"
-         BlueprintIdentifier = "AD82B9F4BD6343579B5EE285"
+         BlueprintIdentifier = "0F1E77DB217A4CB987811318"
          BuildableName = "UAVPlaylist.app"
          BlueprintName = "UAVPlaylist"
          ReferencedContainer = "container:UAVPlaylist.xcodeproj">
@@ -44,7 +44,7 @@
          runnableDebuggingMode = "0">
       <BuildableReference
          BuildableIdentifier = "primary"
-         BlueprintIdentifier = "AD82B9F4BD6343579B5EE285"
+         BlueprintIdentifier = "0F1E77DB217A4CB987811318"
          BuildableName = "UAVPlaylist.app"
          BlueprintName = "UAVPlaylist"
          ReferencedContainer = "container:UAVPlaylist.xcodeproj">
@@ -61,7 +61,7 @@
          runnableDebuggingMode = "0">
       <BuildableReference
          BuildableIdentifier = "primary"
-         BlueprintIdentifier = "AD82B9F4BD6343579B5EE285"
+         BlueprintIdentifier = "0F1E77DB217A4CB987811318"
          BuildableName = "UAVPlaylist.app"
          BlueprintName = "UAVPlaylist"
          ReferencedContainer = "container:UAVPlaylist.xcodeproj">

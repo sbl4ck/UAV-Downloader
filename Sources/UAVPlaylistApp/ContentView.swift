@@ -20,6 +20,11 @@ struct ContentView: View {
             }
             .tabItem { Label("Playlist", systemImage: "list.and.film") }
             .badge(queue.count)
+
+            NavigationStack {
+                AccountView()
+            }
+            .tabItem { Label("Account", systemImage: "person.crop.circle") }
         }
         .environmentObject(queue)
     }

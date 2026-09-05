@@ -11,6 +11,9 @@ struct CategoryListView: View {
     @State private var isLoading = true
     @State private var searchText = ""
 
+    /// Watched so signing in (or out) refreshes the playlist section in place.
+    @ObservedObject private var account = MissAVAccount.shared
+
     private var browser: (any SiteBrowser.Type)? {
         BrowserRegistry.browser(named: siteName)
     }
@@ -21,6 +24,16 @@ struct CategoryListView: View {
             guard let items = groups[name], !items.isEmpty else { return nil }
             return (name, items)
         }
+    }
+
+    /// Categories that came from a signed-in account (MissAV saved playlists).
+    private var accountPlaylists: [BrowseCategory] {
+        categories.filter { $0.group == MissAVBrowser.accountPlaylistGroup }
+    }
+
+    /// The site's own categories, without the account-sourced ones.
+    private var plainCategories: [BrowseCategory] {
+        categories.filter { $0.group != MissAVBrowser.accountPlaylistGroup }
     }
 
     /// Selection in the order the sections present it, so the merged listing is stable.
@@ -58,9 +71,22 @@ struct CategoryListView: View {
                 }
             }
 
-            if !categories.isEmpty {
+            if !accountPlaylists.isEmpty {
+                Section(MissAVBrowser.accountPlaylistGroup) {
+                    ForEach(accountPlaylists) { playlist in
+                        CheckboxRow(
+                            title: playlist.name,
+                            isOn: selected.contains(playlist)
+                        ) {
+                            toggle(playlist)
+                        }
+                    }
+                }
+            }
+
+            if !plainCategories.isEmpty {
                 Section("Categories") {
-                    ForEach(categories) { category in
+                    ForEach(plainCategories) { category in
                         CheckboxRow(
                             title: category.name,
                             isOn: selected.contains(category)
@@ -114,14 +140,21 @@ struct CategoryListView: View {
         }
         .task {
             guard categories.isEmpty else { return }
-            guard let browser else {
-                isLoading = false
-                return
-            }
-            tags = browser.tags()
-            categories = await browser.categories()
-            isLoading = false
+            await reload()
         }
+        .onChange(of: account.playlists) { _, _ in
+            Task { await reload() }
+        }
+    }
+
+    private func reload() async {
+        guard let browser else {
+            isLoading = false
+            return
+        }
+        tags = browser.tags()
+        categories = await browser.categories()
+        isLoading = false
     }
 
     private func toggle(_ category: BrowseCategory) {
