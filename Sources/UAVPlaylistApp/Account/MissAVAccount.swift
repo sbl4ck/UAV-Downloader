@@ -157,31 +157,66 @@ final class MissAVAccount: ObservableObject {
         return fetched
     }
 
-    /// Reads `/en/playlists` and turns each saved playlist into a browsable category.
-    func fetchPlaylists() async throws -> [BrowseCategory] {
-        guard let url = URL(string: "\(Self.root)/en/playlists") else { return [] }
-        let response: HTTPResponse
-        do {
-            response = try await HTTPClient.shared.get(
-                url, headers: ["Referer": "\(Self.root)/en"], timeout: 30)
-        } catch {
-            throw AccountError.network(error.localizedDescription)
-        }
-        guard response.response.statusCode == 200 else {
-            throw AccountError.unexpected(response.response.statusCode)
-        }
-        guard let doc = try? SwiftSoup.parse(response.text) else { return [] }
-
+    /// Reads the account's playlists from `/en/playlists`, paging until a page turns
+    /// up nothing new. MissAV paginates listings with `?page=N`, and the index only
+    /// shows one page at a time, so a single fetch silently truncates the list.
+    ///
+    /// Stopping on "no new entries" (rather than on an empty page) also makes this
+    /// safe if `?page=` is ignored on this route: page 2 would repeat page 1, yield
+    /// zero new playlists, and end the loop after one extra request.
+    func fetchPlaylists(maxPages: Int = 25) async throws -> [BrowseCategory] {
         var results: [BrowseCategory] = []
         var seen = Set<URL>()
+
+        for page in 1...max(1, maxPages) {
+            guard let pageURL = playlistsPageURL(page: page) else { break }
+
+            let response: HTTPResponse
+            do {
+                response = try await HTTPClient.shared.get(
+                    pageURL, headers: ["Referer": "\(Self.root)/en"], timeout: 30)
+            } catch {
+                // A later page failing shouldn't discard what we already have.
+                if page == 1 { throw AccountError.network(error.localizedDescription) }
+                break
+            }
+
+            guard response.response.statusCode == 200 else {
+                if page == 1 { throw AccountError.unexpected(response.response.statusCode) }
+                break
+            }
+            guard let doc = try? SwiftSoup.parse(response.text) else { break }
+
+            let batch = parsePlaylists(doc, relativeTo: pageURL, excluding: seen)
+            if batch.isEmpty { break }
+            results.append(contentsOf: batch)
+            seen.formUnion(batch.map(\.url))
+        }
+        return results
+    }
+
+    private func playlistsPageURL(page: Int) -> URL? {
+        let base = "\(Self.root)/en/playlists"
+        return URL(string: page <= 1 ? base : "\(base)?page=\(page)")
+    }
+
+    /// Playlist entries on one index page, skipping any URL already collected.
+    private func parsePlaylists(
+        _ doc: Document,
+        relativeTo pageURL: URL,
+        excluding seen: Set<URL>
+    ) -> [BrowseCategory] {
+        var results: [BrowseCategory] = []
+        var localSeen = seen
+
         for anchor in (try? doc.select("a[href*=/playlists/]").array()) ?? [] {
             guard let href = try? anchor.attr("href"),
-                  let playlistURL = URL(string: href, relativeTo: url)?.absoluteURL else { continue }
+                  let playlistURL = URL(string: href, relativeTo: pageURL)?.absoluteURL else { continue }
 
             // Only entries with an id after /playlists/ — not the index link itself.
             let id = playlistURL.lastPathComponent
-            guard !id.isEmpty, id != "playlists", !seen.contains(playlistURL) else { continue }
-            seen.insert(playlistURL)
+            guard !id.isEmpty, id != "playlists", !localSeen.contains(playlistURL) else { continue }
+            localSeen.insert(playlistURL)
 
             results.append(BrowseCategory(
                 name: playlistName(from: anchor, fallbackID: id),
